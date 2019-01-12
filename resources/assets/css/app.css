@@ -1,0 +1,59 @@
+.tl-list-item {
+    @apply .my-4 .flex .items-center .hover:bg-indigo .p-2
+}
+
+.agent-image {
+    background-image: url("/images/agent1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .tenant-image {
+    background-image: url("/images/tenant1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .owner-image {
+    background-image: url("/images/owner1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .demo-image {
+    background-image: url("/images/demo1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .vendor-image {
+    background-image: url("/images/vendor1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .login-image {
+    background-image: url("/images/loginas.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
