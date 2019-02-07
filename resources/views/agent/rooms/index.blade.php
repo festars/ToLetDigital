@@ -20,7 +20,7 @@
             <div class="w-full">
               <table id="example1" class="w-full">
                 <thead class="w-full">
-                  <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+                  <tr class="w-full content-center bg-tolet-blue">
                     <th scope="col">Unit Name</th>
                     <th scope="col">Size(SQft)</th>
                     <th scope="col">Property</th>

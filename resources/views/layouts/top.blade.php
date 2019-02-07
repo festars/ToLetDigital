@@ -6,7 +6,7 @@
     <!-- end of left -->
         <div class="flex justify-end items-center">
             <div class="inline-flex items-center">
-                <div class="mx-2">
+                <div class="">
                     <user-notifications></user-notifications>
                 </div>
                 @auth

@@ -23,7 +23,9 @@
       $( api.table().footer() ).html(
         api.column( 5, {page:'current'} ).data().sum()
       );
+      
     }
+    
   });
 </script>
 @endsection

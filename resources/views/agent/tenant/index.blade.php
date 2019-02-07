@@ -9,14 +9,14 @@
 
           </div>
           <div>
-            <new-tenant></new-tenant>
+            <new-tenant :rentals="{{ json_encode(Auth::user()->listings) }}" ></new-tenant>
            </div>
         </div>
         <div class="flex justify-between items-center my-4">
             <div class="w-full">
               <table id="example1" class="w-full">
                 <thead class="w-full">
-                  <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+                  <tr class="w-full content-center bg-tolet-blue">
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>

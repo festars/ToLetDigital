@@ -7,10 +7,24 @@ use Illuminate\Support\Facades\Auth;
 
 class SystemController extends Controller
 {
-    
     public function index(Request $request)
     {
-        return view('sample');
+        return view('main');
+    }
+    
+     public function howitworks(Request $request)
+    {
+        return view('howitworks');
+    }
+    
+     public function whatyouget(Request $request)
+    {
+        return view('whatyouget');
+    }
+    
+     public function whyusethesoftware(Request $request)
+    {
+        return view('whyusethesoftware');
     }
 
     public function login()

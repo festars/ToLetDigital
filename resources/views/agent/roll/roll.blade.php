@@ -1,4 +1,4 @@
- <tr class="w-full" >
+ <tr class="" >
   <td><a class="link-class" href="{{ route('tenant.show',['id' =>$room->id or ''])}}">{{ $room->listing->name or ''}} </a></td>
   <td>{{ $room->name }}</td>
   <td>

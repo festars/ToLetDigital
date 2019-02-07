@@ -17,6 +17,8 @@ class CreateOwnersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('alternative_email');
+            $table->string('alternative_phone');
             $table->string('password');
             $table->string('phone')->nullable();
             $table->string('country')->nullable();
@@ -25,6 +27,7 @@ class CreateOwnersTable extends Migration
             $table->integer('total_tenants')->unsigned()->default(0);
             $table->integer('isApproved')->nullable();
             $table->timestamp('approved_at')->nullable();
+            $table->string('session_id');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

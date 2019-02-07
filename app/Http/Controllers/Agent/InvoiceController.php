@@ -23,10 +23,12 @@ class InvoiceController extends Controller
     public function index()
     {
         if(request('type') === 'unpaid'){
-            $invoices =Invoice::unpaid()->where('agent_id',auth()->user()->id)->get();
+            $invoices =Invoice::unpaid()->where('agent_id',auth()->user()->id)->with('rental')->get();
         }else{
-           $invoices =Invoice::paid()->where('agent_id',auth()->user()->id)->get();
+           $invoices =Invoice::paid()->where('agent_id',auth()->user()->id)->with('rental')->get();
         }
+        
+       // dd($invoices);
         return view('agent.invoice.index',compact('invoices'));
     }
 

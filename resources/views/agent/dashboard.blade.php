@@ -80,7 +80,7 @@
                         <h4 class="text-bold text-5xl tracking-wide text-tolet-blue">{{$data->rent_total}}</h4>
                     </div>
                     <div class="flex justify-center items-center">
-                        <a class="text-lg uppercase text-grey tracking-wide" href="/agent/rent"><h4 >Total Rent Expected</h4></a>
+                        <a class="text-lg uppercase text-grey tracking-wide" href="/agent/rent"><h4 >Rent Expected</h4></a>
                     </div>
                 </div>
             </div>

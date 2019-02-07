@@ -1,6 +1,6 @@
 <table id="payments" class="w-full">
   <thead class="w-full">
-    <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+    <tr class="w-full content-center bg-tolet-blue">
       <th scope="col">Payment Date</th>
       <th scope="col">Payment Method</th>
        <th scope="col">Paid by</th>

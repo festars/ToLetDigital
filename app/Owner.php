@@ -24,7 +24,7 @@ class Owner extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','isApproved','approved_at','country','total_listings','total_units','total_tenants'
+        'name', 'email','alternative_email', 'password','phone','alternative_phone','isApproved','approved_at','country','total_listings','total_units','total_tenants'
     ];
 
     /**
@@ -59,5 +59,15 @@ class Owner extends Authenticatable
      public function notices()
     {
         return $this->morphMany(Notice::class, 'addressable');
+    }
+    
+    public function maintenances()
+    {
+        return $this->morphMany(Maintenance::class, 'addressable');
+    }
+    
+    public function expenses()
+    {
+        return $this->morphMany(Expense::class, 'addressable');
     }
 }

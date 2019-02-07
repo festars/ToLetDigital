@@ -43,4 +43,6 @@ class Listing extends Model
     {
         return $this->hasMany(Room::class,'listing_id');
     }
+    
+   
 }

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('country')->nullable();
             $table->integer('isApproved')->nullable();
             $table->timestamp('approved_at')->nullable();
+            $table->string('session_id');
             $table->rememberToken();
             $table->timestamps();
         });

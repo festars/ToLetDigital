@@ -21,7 +21,8 @@ class ListingController extends Controller
 
         $owner_ids = auth()->user()->listings->pluck('owner_id');
 
-        $owners = Owner::find($owner_ids);
+        //$owners = Owner::find($owner_ids);
+        $owners = Owner::all();
 
         $ptypes = PropertyType::get();
 
@@ -35,6 +36,8 @@ class ListingController extends Controller
      */
     public function create()
     {
+        $owners=Owner::all();
+        dd($owners);
         return view('agent.listings.create', compact('owners','ptypes'));
     }
 
@@ -48,6 +51,7 @@ class ListingController extends Controller
     {
         request()->validate([
             'owner' => 'required|exists:owners,id',
+            'country' => 'required',
             'ptype' => 'required|exists:property_types,id',
             'name' => 'required|string|max:255',
             'land' => 'nullable|string|max:255',
@@ -61,7 +65,8 @@ class ListingController extends Controller
             'name' => request('name'),
             'land' => request('land'),
             'color' => request('color'),
-            'description' => request('description')
+            'description' => request('description'),
+            'country' => request('country')
         ]);
 
         return response()->json([

@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="flex justify-end items-center">
-              <button type="submit" class="bg-green py-2 px-6 text-white font-bold rounded">Create</button>
+              <button type="submit" class="bg-green py-2 px-6 text-white font-bold rounded">Send</button>
             </div>
         </form>
         </modal>

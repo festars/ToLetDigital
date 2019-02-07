@@ -22,8 +22,12 @@ class CreateTenantsTable extends Migration
             $table->string('aphone')->nullable();
             $table->string('aemail')->nullable();
             $table->string('country')->nullable();
+            $table->string('idnumber')->nullable();
+            $table->string('profilepic')->nullable();
             $table->integer('isApproved')->nullable();
             $table->timestamp('approved_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->string('session_id');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

@@ -55,14 +55,20 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
         Route::post('tenant/assign/{room}/{tenant}', 'TenantController@assign');
         Route::get('tenant/search', 'TenantController@search');
         Route::resource('tenant', 'TenantController');
+        Route::post('tenant/profile/{id}', 'TenantController@uploadpic');
+        Route::resource('tasks', 'TaskController');
         Route::get('account/search', 'AccountController@search');
         Route::resource('account', 'AccountController');
         Route::resource('rent', 'RentController');
+        Route::resource('maintenance', 'MaintenanceController');
+        Route::resource('expense', 'ExpenseController');
         Route::post('/invoice/email/{invoice}', 'InvoiceController@email');
         Route::resource('invoice', 'InvoiceController');
         Route::get('/payment', 'PaymentController@index')->name('agent.payment');
         Route::post('/invoice/payment/{invoice}', 'PaymentController@store');
         Route::get('complains', 'ComplainsController@index')->name('agent.complains');
+        Route::get('profile', 'SettingsController@profile')->name("agent.profile");
+        Route::post('profile', 'SettingsController@uploadpic')->name("agent.upload");
     });
 });
 
@@ -89,6 +95,9 @@ Route::get('profiles/notifications', 'UserNotificationsController@index')->name(
 Route::delete('profiles/notifications/{notification}', 'UserNotificationsController@destroy')->name('user-notification.destroy');
 
 Route::get('/', 'SystemController@index')->name('sys.index');
+Route::get('/howitworks', 'SystemController@howitworks')->name('sys.howitworks');
+Route::get('/whyusethesoftware', 'SystemController@whyusethesoftware')->name('sys.whyusethesoftware');
+Route::get('/whatyouget', 'SystemController@whatyouget')->name('sys.whatyouget');
 Route::post('/system/login', 'SystemController@login')->name('sys.login.post');
 
 Auth::routes();

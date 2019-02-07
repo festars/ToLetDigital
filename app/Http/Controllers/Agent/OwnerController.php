@@ -19,9 +19,15 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owner_ids = auth()->user()->listings->pluck('owner_id');
+        // $listings = auth()->user()->listings->where("agent_id",auth()->user()->id);
+        // dd($listings);
+        // $owners=[];
+        // foreach($listings as $listing){
+        //     array_push($owners,$listing->owner);
+        // }
+        
 
-        $owners = Owner::find($owner_ids);
+        $owners = Owner::all();
 
         return view('agent.owners.index', compact('owners'));
     }
@@ -44,16 +50,21 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         request()->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:owners',
-            'phone' => 'required|string'
+            'aemail' => 'required|string|email|max:255',
+            'phone' => 'required|string',
+            'altphone' => 'required|string'
         ]);
 
          Owner::create([
             'name' => request('name'),
             'email' => request('email'),
+            'alternative_email' => request('aemail'),
             'phone' => request('phone'),
+            'alternative_phone' => request('altphone'),
             'password' => Hash::make('secret'),
             'country'  => request('country'),
         ]);

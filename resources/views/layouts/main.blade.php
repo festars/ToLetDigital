@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
        
     </head>
     <body class="bg-tolet-yellow font-sans antialiased">
@@ -27,13 +27,14 @@
 
             <div class="w-left rounded">
                 <div class="relative flex flex-col justify-center h-full">
-                    <div class="block bg-tolet-blue flex justify-center items-center w-full h-48 mb-6">
-                        <img src="/img/logo1.png" class="h-48 w-48 rounded-full">
-                    </div>
+                    <!--<div class="block bg-tolet-blue flex justify-center items-center mb-6">-->
+                    <!--    <img src="/img/logo1.png" class="h-48 w-48 rounded-full">-->
+                    <!--</div>-->
                     <!-- End of logo -->
 
                     <!-- Start of menu -->
                     <div class="container flex-1 overflow-auto max-h-screen">
+                        <img src="/img/logo1.png" class="h-48 w-48 rounded-full">
                             @if(Auth::guard('owner')->check())
                                 @include('owner.side')
                             @elseif(Auth::guard('agent')->check())
@@ -78,6 +79,8 @@
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
         <script src="//cdn.datatables.net/plug-ins/1.10.19/api/sum().js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
         @yield('scripts')
 
     </body>

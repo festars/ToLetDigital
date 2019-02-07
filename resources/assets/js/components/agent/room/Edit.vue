@@ -7,7 +7,7 @@
         </svg>
         Edit
     </a>
-      <modal name="edit-room" height="auto" width="900">
+      <modal :name="name" height="auto" width="900">
        <form class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-4" @submit.prevent="submit">
         <p class="flex justify-center items-center"><h3 class="uppercase">Create New Unit</h3></p>
         <div class="mb-4 flex justify-between">
@@ -80,6 +80,7 @@
                     'name':'',
                     'size':''
                 }),
+             name:'edit-room'+this.item.id,
         }
       },
 
@@ -96,7 +97,7 @@
         submit(){
           this.form.put(`/agent/room/${this.form.id}`).
                 then(response => {
-                  this.$modal.hide('edit-room');
+                  this.$modal.hide(this.name);
                   flash(response.message);
                   location.reload();
                 }).catch(errors => {
@@ -104,7 +105,7 @@
                 })
         },
         show(){
-          this.$modal.show('edit-room');
+          this.$modal.show(this.name);
         }
       },
   }

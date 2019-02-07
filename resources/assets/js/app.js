@@ -10,10 +10,10 @@ window.Vue = require("vue");
 require("./bootstrap");
 Vue.use(Vuex);
 Vue.use(Vuetify);
-Vue.use(BootstrapVue);
 Vue.use(VueTelInput);
 Vue.use(VueSweetAlert);
 Vue.use(VModal, { dialog: true, dynamic: true });
+Vue.use(BootstrapVue);
 let store = require("./store/");
 
 import "vuetify/dist/vuetify.min.css";

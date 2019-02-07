@@ -1,6 +1,6 @@
 <table id="payment" class="w-full">
   <thead class="w-full">
-    <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+    <tr class="w-full content-center bg-tolet-blue">
         <th scope="col">Invoice Number</th>
         <th scope="col">Payment Date</th>
         <th scope="col">Period</th>     
@@ -23,9 +23,9 @@
             <td>{{ number_format($invoice->balance,2) }}</td>
             <td>
                 <div class="flex justify-around">
-                <span>
-                    <email-invoice invoice="{{ $invoice->id }}" email="{{$invoice->tenant->email}}"></email-invoice>
-                </span>
+                <!--<span>-->
+                <!--    <email-invoice invoice="{{ $invoice->id }}" email="{{$invoice->tenant->email}}"></email-invoice>-->
+                <!--</span>-->
                 <span>
                     <a href="{{ $invoice->invoice_url }}" class="no-underline px-4 py-2 bg-teal text-white rounded">view</a>
                 </span>

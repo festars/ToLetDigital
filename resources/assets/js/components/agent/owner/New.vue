@@ -4,19 +4,27 @@
         <modal name="open-owner" height="auto" width="900" :draggable=true>
             <form class="w-full max-w-xl py-8" @submit.prevent="submit">
             <div class="flex flex-wrap mb-6">
-                <div class="flex flex-wrap mb-6">
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="flex flex-wrap mb-2">
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <label class="label w-1/4"for="grid-first-name">
                      Name
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3 leading-tight" v-model="form.name" id="grid-first-name" type="text" placeholder="James Doe">
                   </div>
-                  <div class="w-full md:w-1/2 px-3">
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <label class="label w-1/4" for="grid-last-name">
                       Email
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.email" type="email" placeholder="tolet@mail.com">
                     <p class="text-red text-xs italic my-2" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></p>
+                  </div>
+                  
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="label w-1/4" for="grid-last-name">
+                      Alternative Email
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.aemail" type="email" placeholder="tolet@mail.com">
+                    <p class="text-red text-xs italic my-2" v-if="form.errors.has('aemail')" v-text="form.errors.get('aemail')"></p>
                   </div>
                 </div>
                 <div class="flex flex-wrap mb-2">
@@ -46,6 +54,13 @@
                     </label>
                     <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.phone" type="text" placeholder="254700000000">
                   </div>
+                  
+                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                    <label class="label w-1/4" for="grid-zip">
+                      Alternative Phone
+                    </label>
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.altphone" type="text" placeholder="254700000000">
+                  </div>
                 </div>
             </div>
             <div class="flex justify-end items-center">
@@ -62,9 +77,11 @@
            form:new Form({
                 'name':'',
                 'email':'',
+                'aemail':'',
                 'country':'',
                 'city':'',
                 'phone':'',
+                'altphone':'',
                 }),
             'countries':window.App.countries,
             

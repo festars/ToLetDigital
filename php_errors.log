@@ -46,3 +46,5 @@ Stack trace:
 [02-Jan-2019 07:45:00 UTC] PHP Fatal error:  Trait 'App\Notifiable' not found in /home/ubuntu/workspace/tolet/app/Notice.php on line 9
 [02-Jan-2019 09:25:19 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Tenant\Controller' not found in /home/ubuntu/workspace/tolet/app/Http/Controllers/Tenant/SettingsController.php on line 7
 [03-Jan-2019 14:28:34 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/ubuntu/workspace/tolet/vendor/pragmarx/coollection/src/package/Coollection.php on line 147
+[16-Jan-2019 12:03:57 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Agent\Controller' not found in /home/ubuntu/workspace/tolet/app/Http/Controllers/Agent/MaintenanceController.php on line 8
+[16-Jan-2019 12:23:18 UTC] PHP Fatal error:  Cannot use Illuminate\Database\Eloquent\Model as Model because the name is already in use in /home/ubuntu/workspace/tolet/app/Maintenance.php on line 8

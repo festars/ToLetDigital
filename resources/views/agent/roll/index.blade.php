@@ -14,10 +14,10 @@
         </div>
         <div class="flex justify-between items-center my-4">
             
-              <table id="example1" class="w-full">
+              <table id="example1" class=" w-full table">
                 
-                <thead class="w-full">
-                  <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+                <thead class="">
+                  <tr class="w-full bg-tolet-blue">
                     <th scope="col">Property</th>
                     <th scope="col">Unit</th>
                     <th scope="col">Status</th>
@@ -32,17 +32,7 @@
                       @include('agent.roll.roll')
                     @endforeach
                 </tbody>
-                 <tfoot>
-            <tr>
-                <th scope="col">Property</th>
-                    <th scope="col">Unit</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Tenants</th>
-                    <th scope="col">Currency</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Action</th>
-            </tr>
-        </tfoot>
+              
               </table>
             </div>
          </div>
@@ -50,33 +40,6 @@
 @endsection
 @section('scripts')
 <script>
-$(document).ready(function() {
-    $('#example1').DataTable( {
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                 console.log(this);
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                             
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-           
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
-    } );
-} );
-  
+  nicetable('#example1');
 </script>
 @endsection

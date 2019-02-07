@@ -1,7 +1,7 @@
 <table id="tenants" class="w-full table">
   @if($room->tenants->count() > 0)
   <thead class="w-full">
-    <tr class="w-full content-center text-tolet-blue bg-white uppercase">
+    <tr class="w-full content-center bg-tolet-blue">
       <th scope="col">Tenant Name</th>
       <th scope="col">Phone</th>
       <th scope="col">From</th>

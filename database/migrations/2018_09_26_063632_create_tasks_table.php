@@ -20,8 +20,8 @@ class CreateTasksTable extends Migration
             $table->string('tasktype');
             $table->timestamp('duedate');
             $table->string('priortylevel');
-            $table->string('assignedto');
-            $table->string('asingnedto_id');
+            $table->string('addressable_type');
+            $table->string('addressable_id');
             $table->string('created_by');
             $table->string('details');
             $table->string('src')->nullable();

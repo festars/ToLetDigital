@@ -1,6 +1,6 @@
  <table id="finance" class="w-full">
   <thead class="w-full">
-    <tr class="w-full content-center text-tolet-blue bg-white uppercase py-2">
+    <tr class="w-full content-center bg-tolet-blue py-2">
       <th scope="col">Account</th>
       <th scope="col">Period</th>
       <th scope="col">Currency</th>

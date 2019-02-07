@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div>
     <button class="no-underline bttn bg-indigo hover:bg-blue-ddark" @click="show">Edit</button>
       <modal :name="name" height="auto" width="900" :draggable=true>
        <form class="w-full container mx-auto" @submit.prevent="submit">
@@ -159,7 +159,7 @@ export default {
                 })
         },
         show(){
-          this.$modal.show(this.id);
+          this.$modal.show(this.name);
         }
     }
 }

@@ -12,8 +12,15 @@ Vue.component("edit-account", require("./account/Edit.vue"));
 Vue.component("remove-account", require("./account/Remove.vue"));
 Vue.component("new-owner", require("./owner/New.vue"));
 Vue.component("edit-owner", require("./owner/Edit.vue"));
+Vue.component("new-maintenance", require("./maintenances/New.vue"));
+Vue.component("edit-maintenance", require("./maintenances/Edit.vue"));
+Vue.component("new-expense", require("./expenses/New.vue"));
+Vue.component("edit-expense", require("./expenses/Edit.vue"));
+
 
 
 Vue.component("new-invoice", require("./invoice/NewInvoice.vue"));
 Vue.component("email-invoice", require("./invoice/EmailInvoice.vue"));
 Vue.component("pay-invoice", require("./payments/NewPayment.vue"));
+Vue.component("new-agenttask", require("./tasks/New.vue"));
+Vue.component("edit-agenttask", require("./tasks/Edit.vue"));

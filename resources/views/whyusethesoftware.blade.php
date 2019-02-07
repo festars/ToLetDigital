@@ -66,16 +66,16 @@
                     </button>
                         
                     <!--logo -->
-                    <img src="images/logo.png">
+                    <a href="index.html"><img src="images/logo.png"></a>
 
                 </div>
                         
                 <div id="navbar-collapse-02" class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="#pricing">Register</a></li>
 
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="#blog">Login</a></li>
                        
                     </ul>
                 </div>
@@ -91,7 +91,7 @@
     <!--end header -->
 
     <!--begin home section -->
-    <section class="home-section" id="home_wrapper">
+    <section class="home-section howitworks2" id="home_wrapper">
 
 		<div class="home-section-overlay"></div>
 
@@ -99,32 +99,7 @@
 		<div class="container">
 
 	        <!--begin row -->
-	        <div class="row">
-	          
-              <div class="col-md-6">
-              <img  class="imac" src="images/imac.png" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeIn;">
-              </div>
-              
-	            <!--begin col-md-6-->
-	            <div class="col-md-6" >
-
-	          		<h1 style="text-align:center;">To Let Online Property Management Software</h1>
-
-                    <!--begin features-list-hero -->
-                    <ul class="features-list-hero">
-
-                        <li class="wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;text-align:center;">
-                            Built for e tenants, e agents, e landlords, e vendors, small to large property managing companies. We have been successful creating solutions to you our client.
-                        </li>
-
-                    </ul>
-                     <a href="#" class="btn btn-lg btn-blue" style="text-align:center;margin-left: 35%;">Discover More</a>
-                    <!--end features-list-hero -->
-                    
-	          </div>
-	          <!--end col-md-6-->
-	       
-	        </div>
+	        <div class="row"></div>
 	        <!--end row -->
 
 		</div>
@@ -137,7 +112,7 @@
     <!--end sponsors section -->
 
     <!--begin section-white -->
-    <section class="section-white howitworks" id="about">
+    <section class="section-white" id="about">
 
 		<!--begin container -->
 		<div class="container">
@@ -146,88 +121,28 @@
 	        <div class="row">
 
 				<!--begin col-md-12 -->
-				<div class="col-md-12 text-center padding-top-20">
-					
+				<div class="col-md-9 padding-top-20">
+					<h3><strong style="color: #26a9df;">WHY USE THE SOFTWARE</strong></h3>
+						<p><strong class="smallhead">1. Data security</strong></p>
+<p>More than 10,000 property managers and tenant’s trust us with their data, because we take industry-leading security measures to secure and safe guard our system against intrusion. As a property manager, you handle a lot of sensitive information, including national registration identity numbers, tax IDs, emails and bank account information. We encrypt this data to keep you, your tenants, vendors, and business partners secure. And, all of your information is secured at a physical data center, monitored by the professionals at <a href="http://www.digitalocean.com">www.digitalocean.com</a>. Our web application firewall (WAF) alerts us to irregular traffic and automatically blocks any attacks.</p>
+<p>We regularly audit our procedures to ensure the most secure experience for customers. We review every new feature for security risks, and we regularly conduct penetration tests to uncover vulnerabilities within the application.</p>
+<p>Redundant firewalls, load balancers, and web servers ensure that our software is available whenever you need it. And you never have to worry about losing your data, as it’s securely stored on backup servers.</p>
+<p><strong class="smallhead">2. Automated</strong></p>
+<p>Our dynamic cloud computing software stands to be an intelligent system as it does Common expense allocation and tracking automatically, online task notifications for pending and created tasks, Generate payment receipts as they are posted and email the same to clients in real time. XML site maps feeds of your business website to optimize your company on search engines. Automated invoice and receipt generation feature and so much more.</p>
+<p><strong class="smallhead">3. Ease of use</strong></p>
+<p>Our customers say that the best part of Tolet Online Property Management Software is how easy it is to learn and use But don’t take our word for it. Sign up an account to see what we are talking about. Your opinion and feedback is highly welcomed.</p>
+<p><strong class="smallhead">4. Cost saving &amp; affordability</strong><br>
+How much time and money could you be saving with Tolet Online Property Management Software? On average, how many phone calls do you have with tenants, vendors, property owners, etc. each day?, On average, how many minutes is each phone call?, On average, how many hours do you spend each month on: Preparing financial reports and statements?, Processing rent payments? Late fee reminders? Paying bills? Printing, scanning, and sending leases invoices and receipts?</p>
+
+				</div>
+				<div class="col-md-3">
+					<img src="images/whyuse.jpg" style="padding-top: 100px;background: #197fa9;padding-bottom: 100px;padding-left: 0px;">
 				</div>
 				<!--end col-md-12 -->
 
 				<!--begin col-md-4 -->
 				<!--begin col-md-1 -->
-				<div class="col-md-1">
-
-					<div class="about-box">
-
-						<img src="images/howitworks.png">
-						
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-                
-                <div class="col-md-3">
-
-					<div class="about-box">
-
-						<h3 style="text-align:left;">HOW IT WORKS</h3>
-
-						<p style="text-align:left;">Curabitur quam etsum lacus etsumis nulat iaculis ets vitae etsum nisle varius sed aliquam ets vitae dictis netsum.</p>
-                        
-						
-					</div>
-                    <a href="#" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
-
-				</div>
-
-				<!--begin col-md-1 -->
-				<div class="col-md-1">
-
-					<div class="about-box">
-
-						<img src="images/diamond.png">
-						
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-                
-                <div class="col-md-3">
-
-					<div class="about-box">
-
-						<h3 style="text-align:left;">WHY USE THE SOFTWARE</h3>
-
-						<p style="text-align:left;">Curabitur quam etsum lacus etsumis nulat iaculis ets vitae etsum nisle varius sed aliquam ets vitae dictis netsum.</p>
-						
-					</div>
-                    <a href="#" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
-
-				</div>
-
-			<!--begin col-md-1 -->
-				<div class="col-md-1">
-
-					<div class="about-box">
-
-						<img src="images/whatyouget.png">
-						
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-                
-                <div class="col-md-3">
-
-					<div class="about-box">
-
-						<h3 style="text-align:left;">WHAT YOU GET</h3>
-
-						<p style="text-align:left;">Curabitur quam etsum lacus etsumis nulat iaculis ets vitae etsum nisle varius sed aliquam ets vitae dictis netsum.</p>
-						
-					</div>
-                    
-                        <a href="#" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
-
-				</div>
+				
 	       
 	        </div>
 	        <!--end row -->
@@ -239,191 +154,14 @@
     <!--end section-white -->
 
 
-  	<!--begin testimonials section -->
-  	<section class="section-grey" >
+  
 
-	    <!--begin container -->
-	    <div class="container">
 
-	      <!--begin row -->
-	      <div class="row">
-	        
-		        <!--begin col-md-10 -->
-		        <div class="col-md-8 col-md-offset-2">
 
-		        	<!--begin owl carousel -->
-		        	<div id="owl1" class="owl-carousel owl-theme">
 
-						<div class="testim-inner">
 
-							<img src="images/test3.jpg" alt="testimonials" class="testim-img">
-							
-							<p>This attention of a traveller, should be particularly turned, in the first place, to the various works of Nature, to mark the distinctions of the climates he may explore, and to offer such useful observations on the different productions as may occur.</p>
 
-							<h6>Jennifer Smith<span class="job-text"> - Web Designer</span></h6>
-
-						</div>
-
-						<div class="testim-inner">
-
-							<img src="images/test2.jpg" alt="testimonials" class="testim-img">
-							
-							<p>The attention of a traveller, should be particularly turned, in the first place, to the various works of Nature, to mark the distinctions of the climates he may explore, and to offer such useful observations on the different productions as may occur.</p>
-
-							<h6>Jennifer Doe<span class="job-text"> -  Magazine Editor</span></h6>
-
-						</div>
-
-						<div class="testim-inner">
-
-							<img src="images/test1.jpg" alt="testimonials" class="testim-img">
-							
-							<p>The attention of a traveller, should be particularly turned, in the first place, to the various works of Nature, to mark the distinctions of the climates he may explore, and to offer such useful observations on the different productions as may occur.</p>
-
-							<h6>Jennifer Doe<span class="job-text"> - App Magazine Editor</span></h6>
-
-						</div>
-
-					</div>
-					<!--end owl carousel -->
-
-					<!--begin owl carousel -->
-					<div class="owl-dots">
-
-						<div class="owl-dot active"><span></span></div>
-
-						<div class="owl-dot"><span></span></div>
-
-						<div class="owl-dot"><span></span></div>
-
-					</div>
-					<!--end owl carousel -->
-
-		        </div>
-		        <!--end-col-md-10 -->
-
-	      	</div>
-	      	<!--end row -->
-
-	    </div>
-	    <!--end container -->
-
-  	</section>
-  	<!--end testimonials section -->
-
-
-
-
-
-
-	<!--begin pricing section -->
-  	<section class="section-white" id="pricing">
-
-	    <!--begin container -->
-	    <div class="container">
-
-			<!--begin row -->
-			<div class="row">
-
-				<!--begin col-md-12 -->
-				<div class="col-md-12 text-center padding-bottom-30">
-
-					<h2 class="section-title">OUR PACKAGES</h2>
-					
-				</div>
-				<!--end col-md-12 -->
-
-				<!--begin col-md-4-->
-				<div class="col-md-4 col-sm-4">
-
-					<div class="price-box-white">
-
-						<ul class="pricing-list">
-
-							<li class="price-title">BASIC</li>
-
-							<li class="price-value">$19</li>
-
-							<li class="price-subtitle">Per Year</li>
-
-							<li class="price-text">24/7 Support</li>
-
-							<li class="price-text">50 Gb Bandwidth</li>
-
-							<li class="price-text">10 Themes</li>
-                            
-                            <li class="price-tag"><a href="#">GET STARTED</a></li>
-
-						</ul>
-
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-
-				<!--begin col-md-4 -->
-				<div class="col-md-4 col-sm-4">
-
-					<div class="price-box-grey">
-
-						<ul class="pricing-list">
-
-							<li class="price-title">STANDARD</li>
-
-							<li class="price-value">$29</li>
-
-							<li class="price-subtitle">Per Year</li>
-
-							<li class="price-text">24/7 Support</li>
-
-							<li class="price-text">200 Gb Bandwidth</li>
-
-							<li class="price-text">Unlimited Experiences</li>
-                            
-                            <li class="price-tag"><a href="#">GET STARTED</a></li>
-
-						</ul>
-
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-
-				<!--begin col-md-4 -->
-				<div class="col-md-4 col-sm-4">
-
-					<div class="price-box-blue">
-
-						<ul class="pricing-list">
-
-							<li class="price-title white-text8">PRO</li>
-
-							<li class="price-value white-text8">$99</li>
-
-							<li class="price-subtitle white-text8">Per Year</li>
-
-							<li class="price-text white-text8">24/7 Support</li>
-
-							<li class="price-text white-text8">Unlimited Bandwidth</li>
-
-							<li class="price-text white-text8">All Experiences</li>
-                            
-                            <li class="price-tag"><a href="#">GET STARTED</a></li>
-
-						</ul>
-
-					</div>
-
-				</div>
-				<!--end col-md-4 -->
-
-			</div>
-			<!--end row -->
-
-	    </div>
-	    <!--end container -->
-
-  	</section>
+	
 	<!--end pricing section -->
    
   	<!--begin contact -->
@@ -598,8 +336,10 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.scrollTo-min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.nav.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
 
 
 </body>

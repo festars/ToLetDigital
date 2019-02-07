@@ -12,26 +12,26 @@
          <div class="flex justify-between items-center my-4">
             <div class="w-full">
               <table id="example1" class="w-full">
-                <thead class="w-full content-center text-tolet-blue bg-white uppercase">
-                  <tr class="w-full content-center">
+                <thead class="w-full content-center uppercase">
+                  <tr class="bg-tolet-blue content-center">
                     <th scope="col">Name</th>
                     <th scope="col">Property Type</th>
                     <th scope="col">Owner</th>
                     <th scope="col">Tenants</th>
-                     <th scope="col">Units</th>
+                    <th scope="col">Units</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach($listings as $listing)
-                    <tr class="w-full">
+                    <tr>
                       <td>{{ $listing->name or '' }}</td>
                       <td>{{ $listing->ptype->name or '' }}</td>
                       <td>{{ $listing->owner->name }}</td>
                       <td>{{ $listing->total_tenants }}</td>
                       <td>{{ $listing->total_units }}</td>
                       <td>
-                          <div class="flex items-center justify-between">
+                          <div class="flex items-center">
                             <edit-listing :item="{{$listing}}" :owners="{{$owners}}" :ptypes="{{$ptypes}}"></edit-listing>
                             <delete-item url="/agent/listing/{{$listing->id}}"></delete-item>
                           </div>

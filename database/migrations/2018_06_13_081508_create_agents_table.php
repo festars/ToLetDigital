@@ -24,6 +24,9 @@ class CreateAgentsTable extends Migration
             $table->integer('total_units')->unsigned()->default(0);
             $table->integer('total_tenants')->unsigned()->default(0);
             $table->timestamp('approved_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->string('session_id');
+            $table->string('profilepic');
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

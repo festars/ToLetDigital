@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Agent;
 use App\Room;
 use App\Tenant;
 use Carbon\Carbon;
+use Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Events\TenantCreated;
@@ -66,7 +67,7 @@ class TenantController extends Controller
             'aemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',
             'aphone' => 'nullable|numeric',
-            'room' => 'required|numeric'
+            'unit' => 'required|numeric'
         ]);
         
         $pass = Str::random(9);
@@ -78,6 +79,8 @@ class TenantController extends Controller
             'aemail' => request('aemail'),
             'aphone' => request('aphone'),
             'country' => request('country'),
+            'idnumber' => request('idnumber'),
+            'room' => request('unit'),
             'password' => Hash::make($pass),
         ]);
 
@@ -147,6 +150,7 @@ class TenantController extends Controller
         $tenant->aemail = request('aemail');
         $tenant->aphone = request('aphone');
         $tenant->country = request('country');
+        $tenant->idnumber = request('idnumber');
 
         if($tenant->isDirty()){
             $tenant->update();
@@ -177,5 +181,21 @@ class TenantController extends Controller
             'success' => true,
             'message' => 'Action completed successfully.'
         ]);
+    }
+    
+    public function uploadpic(Request $request,$id)
+    {
+      //dd(storage_path());
+       // $path = Storage::putFile('tenantppic', $request->file('profilepic'), $request->user()->id.".".$request->file('profilepic')->extension()
+       // );
+        $path = Storage::putFileAs(
+    'tenantppic', $request->file('profilepic'), $id.".".$request->file('profilepic')->extension()
+);
+ 
+       
+       $item = Tenant::findOrFail($id);
+       $item->profilepic = $request->root()."/storage/".$path;
+       $item->update();
+       return redirect()->back();
     }
 }

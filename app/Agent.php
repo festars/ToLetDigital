@@ -67,4 +67,16 @@ class Agent extends Authenticatable
     {
         return $this->morphMany(Notice::class, 'addressable');
     }
+    
+     public function maintenances()
+    {
+        return $this->hasMany(Maintenance::class, 'agent_id');
+    }
+    
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class, 'agent_id');
+    }
+    
+    
 }

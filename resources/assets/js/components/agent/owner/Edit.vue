@@ -7,7 +7,7 @@
         </svg>
         Edit
     </a>
-      <modal name="edit-owner" height="auto" width="900" draggable=true>
+      <modal :name=name height="auto" width="900" draggable=true>
        <form class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-4" @submit.prevent="submit">
         <p class="flex justify-center items-center"><h3 class="uppercase">Edit Property Owner</h3></p>
         <div class="mb-4 flex justify-between items-center">
@@ -49,7 +49,9 @@
          'item'
       ],
       data(){
+       
         return {
+           name:'edit-owner'+this.item.id,
            form:new Form({
                     
                     'id':'',
@@ -71,7 +73,7 @@
           this.form.put(`/agent/owner/${this.item.id}`,{ params: this.item }).
                 then(response => {
                     console.log(response);
-                  this.$modal.hide('edit-owner');
+                  this.$modal.hide(this.name);
                   flash(response.message);
                   location.reload();
                 }).catch(errors => {
@@ -79,7 +81,7 @@
                 })
         },
         show(){
-          this.$modal.show('edit-owner');
+          this.$modal.show(this.name);
         }
       },
   }
