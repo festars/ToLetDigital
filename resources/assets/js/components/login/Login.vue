@@ -96,6 +96,7 @@ export default {
           location.replace(response.url);
         })
         .catch(errors => {});
+        //alert(2)
     }
   },
 

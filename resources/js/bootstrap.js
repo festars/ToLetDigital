@@ -12,6 +12,9 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    
+    require('../argon/js/argon.js')
+    
 } catch (e) {}
 
 /**

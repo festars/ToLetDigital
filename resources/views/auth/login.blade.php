@@ -1,7 +1,50 @@
 @extends('auth.main')
 
 @section('content')
-<div class="flex justify-center items-center mt-8">
+
+<div class="col-lg-5 col-md-7">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-transparent">
+              <div class="text-muted text-center mt-2 mb-3"><small>Please choose the login appropriate to you.</small></div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+              
+              <a href="/tenant/login" class="btn btn-icon btn-3 btn-neutral btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-single-02"></i></span>
+                  <span class="btn-inner--text">Tenant</span>
+              </a>
+              
+              <a href="/agent/login" class="btn btn-icon btn-3 btn-neutral btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-active-40"></i></span>
+                  <span class="btn-inner--text">Agent</span>
+              </a>
+              
+              
+              <a href="/owner/login" class="btn btn-icon btn-3 btn-neutral btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-shop"></i></span>
+                  <span class="btn-inner--text">Owner</span>
+              </a>
+              
+              <a href="/vendor/login" class="btn btn-icon btn-3 btn-neutral btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-collection"></i></span>
+                  <span class="btn-inner--text">Vendor</span>
+              </a>
+              
+              <a href="/demo/login" class="btn btn-icon btn-3 btn-outline-secondary btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
+                  <span class="btn-inner--text">Demo</span>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+<!-- OLD things -->
+<!--<div class="flex justify-center items-center mt-8">
     <div class="rounded">
         <div class="w-full flex justify-center items-center bg-tolet-yellow">
           <img src="/img/newtolet.png" class="h-48 w-48 rounded-full my-2">
@@ -46,6 +89,6 @@
           </form>
         </div>
     </div>
-</div>
+</div>-->
 @endsection
 

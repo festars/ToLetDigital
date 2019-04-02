@@ -1,6 +1,71 @@
 <template>
-<div>
-    <modal name="login" height="auto" width="900">
+
+    
+   <div class="col-lg-5 col-md-7">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-transparent">
+
+              <!-- custom -->
+                
+                <button type="button" @click="hide" class="btn btn-icon">
+              	<span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
+                  <span class="btn-inner--text">Go back</span>
+              </button>
+                    <!-- custom -->
+                    
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Sign in with your <b>{{ entity }}</b> credentials</small>
+              </div>
+              
+
+              <div v-if="message" class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <span class="alert-inner--text"><strong>Error! </strong> {{ message }}</span>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              
+              <form role="form" @submit.prevent="login">
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" v-model="form.username" placeholder="Email" type="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" v-model="form.password" placeholder="Password" type="password">
+                  </div>
+                </div>
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                  <label class="custom-control-label" for=" customCheckLogin">
+                    <span class="text-muted">Remember me</span>
+                  </label>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--<div class="row mt-3">
+            <div class="col-6">
+              <a href="#" class="text-light"><small>Forgot password?</small></a>
+            </div>
+            <div class="col-6 text-right">
+              <a href="#" class="text-light"><small>Create new account</small></a>
+            </div>
+          </div>-->
+          
+           <!--<modal name="login" height="auto" width="900">
         <div class="fixed pin flex items-center">
             <div class="fixed pin opacity-75 z-10"></div>
 
@@ -48,14 +113,20 @@
                 </div>
             </div>
         </div>
-    </modal>
-</div>
+    </modal>-->
+          
+        </div>
+    
+    
+    
+   
+
 </template>
 
 <script>
 export default {
   mounted() {
-    this.$modal.show("login");
+    //this.$modal.show("login");
   },
 
   props: ["entity"],
@@ -66,17 +137,18 @@ export default {
         username: "",
         password: ""
       }),
-      message: ""
+      message: null
     };
   },
 
   methods: {
     hide() {
-      this.$modal.hide("login");
+      //this.$modal.hide("login");
       location.replace('/login');
     },
 
     login() {
+      this.message = null
       this.form
         .post("/" + this.entity + "/login")
         .then(response => {
@@ -85,6 +157,8 @@ export default {
         .catch(errors => {
           this.message = errors.message;
         });
+        
+        //alert(1)
     }
   }
 };

@@ -1,6 +1,19 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+@import '../argon/vendor/nucleo/css/nucleo.css';
+@import '../argon/vendor/@fortawesome/fontawesome-free/css/all.min.css';
+
+// Variable
+@import 'variables';
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+
+@import '../argon/css/argon.css';
 
 
 @tailwind preflight;
@@ -110,6 +123,14 @@
   color: white;
 }
 
+
+.gradient-primary {
+  background: #008aff;
+    background: -webkit-linear-gradient(135deg, #FCB13B 0%, #27AADF 100%);
+    background: -o-linear-gradient(bottom right, #FCB13B, #27AADF);
+    background: -moz-linear-gradient(bottom right, #FCB13B, #27AADF);
+    background: linear-gradient(135deg, #FCB13B 0%, #27AADF 100%)
+}
 
 @tailwind utilities;
 
