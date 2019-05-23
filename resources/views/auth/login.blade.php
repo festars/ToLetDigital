@@ -30,6 +30,11 @@
                   <span class="btn-inner--text">Vendor</span>
               </a>
               
+              <a href="/admin/login" class="btn btn-icon btn-3 btn-outline-secondary btn-block">
+              	<span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
+                  <span class="btn-inner--text">Admin</span>
+              </a>
+              
               <a href="/demo/login" class="btn btn-icon btn-3 btn-outline-secondary btn-block">
               	<span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
                   <span class="btn-inner--text">Demo</span>

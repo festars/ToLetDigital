@@ -14,6 +14,13 @@ Vue.use(VueTelInput);
 Vue.use(VueSweetAlert);
 Vue.use(VModal, { dialog: true, dynamic: true });
 Vue.use(BootstrapVue);
+
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
+
 let store = require("./store/");
 
 import "vuetify/dist/vuetify.min.css";
@@ -33,6 +40,8 @@ Vue.component("top-right-drop", require("./components/TopRightDropDown.vue"));
 
 require("./components/admin/Admin");
 require("./components/agent/agent");
+require("./components/owner/owner");
+require("./components/vendor/vendor");
 
 require("./components/tenant/tenant");
 

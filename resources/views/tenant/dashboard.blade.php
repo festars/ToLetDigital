@@ -1,18 +1,33 @@
-@extends('layouts.main')
+@extends('layouts.main2')
+
+@section("page-title", "Dashboard")
+
+
 @section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center shandow-md my-4">
-          <div class="px-2">
-            <p><h3>Your Rentals Summary</h3></p>
-          </div>
 
-          <div>
 
-           </div>
-        </div>
-        <div class="flex justify-between items-center my-4">
-            <div class="w-full">
-              <table id="example1" class="w-full table">
+
+<div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Your Rentals Summary</h3>
+                </div>
+                <div class="col text-right">
+                  
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+              <!-- Projects table -->
+              
+
+                          <table id="example1" class="w-full table">
                 <thead class="w-full bg-primary">
                   <tr class="">
                     <th scope="col">Unit Name</th>
@@ -46,9 +61,18 @@
                     @endforeach
                 </tbody>
               </table>
+
+
+
+              
             </div>
-         </div>
-    </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
 @endsection
 @section('scripts')
 <script>

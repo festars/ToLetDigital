@@ -23,6 +23,8 @@ class CreateExpenses extends Migration
             $table->string('payment_method');
             $table->numeric('amount');
             $table->timestamp('duedate');
+            $table->timestamp('approvedon')->nullable();
+            $table->timestamp('declinedon')->nullable();
             $table->string('addressable_type');
             $table->string('addressable_id');
             $table->string('agent_id');

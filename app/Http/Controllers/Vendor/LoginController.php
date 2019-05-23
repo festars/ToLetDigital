@@ -17,12 +17,14 @@ class LoginController extends Controller
     {
         request()->validate([
             'username' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            
         ]);
 
         $credentials =  [
             'email' => request('username'),
-            'password' => request('password')
+            'password' => request('password'),
+            'approved' => 1
          ];
 
         if(!Auth::guard('vendor')->attempt($credentials)){

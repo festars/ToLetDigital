@@ -1,15 +1,29 @@
-@extends('layouts.main')
+@extends('layouts.main2')
+
+@section("page-title", "Tasks")
+
 @section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center my-4">
-            <div class="w-full">
-              <div class="flex items-center">
-                <div class="left-table w-full my-4 mx-4">
-                  <div class="container mx-auto flex justify-between items-center w-full my-2">
-                    <div><p class="uppercase font-semibold text-lg text-blue-dark underline">Tasks</p></div>
-                    <div><new-task :rentals="{{ json_encode(Auth::user()->rentals->load('rentable')) }}" ></new-task></div>
-                  </div>
-                  <table class="table" id="example1">
+
+<div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Tasks</h3>
+                </div>
+                <div class="col text-right">
+                  <new-task :rentals="{{ json_encode(Auth::user()->rentals->load('rentable')) }}" ></new-task>
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+              <!-- Projects table -->
+              
+                                 <table class="table" id="example1">
                     <thead class="bg-primary">
                       
                       <th>Task</th>
@@ -35,12 +49,17 @@
                     </tr>
                   @endforeach
                   </table>
-                  
-                </div>
-              </div>
+
+              
             </div>
-         </div>
-    </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
 @endsection
 @section('scripts')
 <script>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Listing;
 use App\Owner;
 use App\PropertyType;
+use App\PaymentOptions;
+use App\PaymentTypes;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -17,16 +19,17 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = auth()->user()->listings;
+        $listings      = auth()->user()->listings;
+        $owner_ids     = auth()->user()->listings->pluck('owner_id');
+        $pmodes        = PaymentOptions::all();
+        $payment_types = PaymentTypes::all();
+        //$owners      = Owner::find($owner_ids);
+        $owners        = Owner::all();
+        $ptypes        = PropertyType::get();
+        
+      // dd($listings);
 
-        $owner_ids = auth()->user()->listings->pluck('owner_id');
-
-        //$owners = Owner::find($owner_ids);
-        $owners = Owner::all();
-
-        $ptypes = PropertyType::get();
-
-        return view('agent.listings.index', compact('listings','owners','ptypes'));
+        return view('agent.listings.index', compact('listings','owners','ptypes','pmodes','payment_types'));
     }
 
     /**
@@ -50,23 +53,25 @@ class ListingController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'owner' => 'required|exists:owners,id',
-            'country' => 'required',
-            'ptype' => 'required|exists:property_types,id',
-            'name' => 'required|string|max:255',
-            'land' => 'nullable|string|max:255',
-            'color' => 'nullable|string|max:255',
+            'owner'       => 'required|exists:owners,id',
+            'country'     => 'required',
+            'ptype'       => 'required|exists:property_types,id',
+            //'pmode'       => 'required|exists:payment_modes,id',
+            'name'        => 'required|string|max:255',
+            'land'        => 'nullable|string|max:255',
+            'color'       => 'nullable|string|max:255',
             'description' => 'nullable|string'
         ]);
 
         $listing = auth()->user()->listings()->create([
-            'owner_id' => request('owner'),
-            'property_type_id' => request('ptype'),
-            'name' => request('name'),
-            'land' => request('land'),
-            'color' => request('color'),
-            'description' => request('description'),
-            'country' => request('country')
+            'owner_id'           => request('owner'),
+            'property_type_id'   => request('ptype'),
+            'name'               => request('name'),
+           // 'payment_options_id' => request('pmode'),
+            'land'               => request('land'),
+            'color'              => request('color'),
+            'description'        => request('description'),
+            'country'            => request('country')
         ]);
 
         return response()->json([

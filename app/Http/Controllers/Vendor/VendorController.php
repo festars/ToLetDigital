@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Vendor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class VendorController extends Controller
 {
@@ -14,7 +15,10 @@ class VendorController extends Controller
 
     public function index()
     {
-        return view('vendor.dashboard');
+        $data["maintenances"]=auth()->user()->maintenances->count();
+        $data["tasks"]=auth()->user()->tasks->count();
+        $data["maintenances"]=auth()->user()->maintenances->count();
+        return view('vendor.dashboard',compact("data"));
     }
 
     public function showLogin()
@@ -24,11 +28,28 @@ class VendorController extends Controller
 
     public function login()
     {
-        if (!Auth::guard('vendor')->attempt(['email' => request('username'), 'password' => request('password')])) {
-            return response()->json(['message' => 'Wrong Password/Email combination.'], 401);
-        }
-        $url = '/vendor/dashboard';
+        
+        request()->validate([
+            'username' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        return response()->json(['message' => 'Successful Login','url' => $url]);
+        $credentials =  [
+            'email' => request('username'),
+            'password' => request('password')
+            // 'approved' => 1
+         ];
+        
+        if (Auth::guard('vendor')->attempt($credentials)) {
+            $url = '/vendor/dashboard';
+            return response()->json(['message' => 'Successful Login','url' => $url]);
+        }
+        
+        // dd("gtf");
+        
+        return response()->json([
+            'message' => 'Wrong Password/Email combination.',
+            'error' => request()->all()
+        ], 401);
     }
 }

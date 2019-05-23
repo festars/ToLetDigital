@@ -1,39 +1,37 @@
 <template>
   <div class="w-full">
-    <button class="no-underline bttn bg-tolet-blue hover:bg-blue-ddark" @click="show">Create Invoice</button>
-      <modal name="new-invoice" height="500" width="900" :draggable=true>
+    <button class="no-underline bttn bg-tolet-blue hover:bg-blue-ddark" @click="show">Crete Invoice</button>
+      <modal name="new-invoice" height="auto" width="450" :draggable=true style="overflow: unset !important;">
+        
+        <div class="container pb-0">
+          <h4>Create Invoice</h4>
+        </div>
+        
        <form class="w-full container mx-auto" @submit.prevent="submit">
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Period
-                </label>
-                <div >
-                  <date-picker v-model="form.period" type="month" format="MMM-YYYY" lang="en" class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"></date-picker>
-
-                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
-                </div>
+         
+         <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="">Period</label>
+              <date-picker v-model="form.period" class="d-block" type="month" format="MMM-YYYY" lang="en"></date-picker>
+              <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="">Property</label>
+                <select class="form-control">
+                     <option v-for="(property, index) in listings" :value="index">{{property}}</option>
+                </select>
+                    <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
               </div>
-
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Property
-                </label>
-            <div>
-              <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight">
-                   <option v-for="(property, index) in listings" :value="index">{{property}}</option>
-              </select>
-            </div>
-              </div>
-
-            </div>
-
-
-            <div class="flex justify-end items-center">
+        </div>
+        </div>
+        
+            <!--<div class="flex justify-end items-center">
               <button type="submit" class="bg-green py-2 px-6 text-white font-bold rounded">Create</button>
-            </div>
+            </div>-->
+            <button type="submit" class="btn btn-default">Create</button>
         </form>
         </modal>
   </div>
@@ -78,3 +76,9 @@
       }
   }
 </script>
+
+<style scopped>
+  .v--modal-overlay .v--modal-box{
+    overflow: unset !important;
+  }
+</style>

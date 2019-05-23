@@ -15,7 +15,15 @@ class OwnerController extends Controller
 
     public function index()
     {
-        return view('owner.dashboard');
+            $data["listings"] = auth()->user()->listings->count();
+            $data["units"] = auth()->user()->units->count();
+            $data["complains"] = auth()->user()->complains->count();
+            $data["tasks"] = auth()->user()->tasks->count();
+            $data["notices"] = auth()->user()->notices->count();
+            $data["maintenances"] = auth()->user()->maintenances->count();
+            $data["expenses"] =  auth()->user()->expenses->count();
+            
+        return view('owner.dashboard',compact("data"));
     }
 
     public function showLogin()
@@ -32,4 +40,6 @@ class OwnerController extends Controller
 
         return response()->json(['message' => 'Successful Login','url' => $url]);
     }
+    
+    
 }

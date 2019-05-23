@@ -27,6 +27,7 @@ class CreateMaintenances extends Migration
             $table->string('addressable_id');
             $table->string('agent_id');
             $table->string('cause');
+            $table->numeric('approved');
             $table->string('fileurl')->nullable();
 
         });

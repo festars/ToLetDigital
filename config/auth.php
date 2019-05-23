@@ -58,7 +58,7 @@ return [
 
         'vendor' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'vendors',
         ],
 
         'demo' => [
@@ -113,6 +113,11 @@ return [
         'tenants' => [
             'driver' => 'eloquent',
              'model' => App\Tenant::class,
+        ],
+        
+        'vendors' => [
+            'driver' => 'eloquent',
+             'model' => App\Vendor::class,
         ],
     ],
 

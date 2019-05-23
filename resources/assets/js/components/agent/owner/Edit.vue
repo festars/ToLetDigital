@@ -7,32 +7,31 @@
         </svg>
         Edit
     </a>
-      <modal :name=name height="auto" width="900" draggable=true>
-       <form class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-4" @submit.prevent="submit">
-        <p class="flex justify-center items-center"><h3 class="uppercase">Edit Property Owner</h3></p>
-        <div class="mb-4 flex justify-between items-center">
-          <div class="flex items-center mx-2 w-1/2">
-            <label class="label w-1/4">
-             Name
-            </label>
-            <input class="outline-0 bg-grey text-blue-dark py-2 text-center flex-1" v-model="form.name" />
+      <modal :name=name height="auto" width="450" draggable=true>
+      
+      <div class="container pb-0"><h4>Edit Property Owner</h4></div>
 
-            <p class="text-red text-xs italic my-2" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
-          </div>
-          <div class="flex items-center mx-2 w-1/2">
-            <label class="label w-1/4">
-             Email
-            </label>
-            <input class="outline-0 bg-grey text-black font-bold py-2 text-center flex-1" v-model="form.email" />
+       <form class="w-full container mx-auto" @submit.prevent="submit">
+         
 
+          
+           <div class="form-group">
+                <label for="">Name</label>
+            <input class="form-control" v-model="form.name" />
+             <p class="text-red text-xs italic my-2" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
+              </div>
+          
+          
+          <div class="form-group">
+                <label for="">Email</label>
+            <input class="form-control" v-model="form.email" />
             <p class="text-red text-xs italic my-2" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></p>
-          </div>
-        </div>
-          <div class="flex items-center justify-between">
-            <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit">
+              </div>
+          
+        
+            <button class="btn btn-default" type="submit">
              Update
             </button>
-          </div>
         </form>
         </modal>
   </div>

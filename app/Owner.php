@@ -70,4 +70,9 @@ class Owner extends Authenticatable
     {
         return $this->morphMany(Expense::class, 'addressable');
     }
+    
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class,'owner_id')->whereNotNull('owner_id');
+    }
 }

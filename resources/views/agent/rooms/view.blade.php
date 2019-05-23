@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center my-4 bg-white py-2 px-4 rounded shandow-sm">
           <div class="px-2">
             <p>
-              <h5 class="uppercase text-sm text-tolet-blue">Unit Name</h5>
+              <h5 class="uppercase text-sm text-tolet-blue">Uit Name</h5>
               <h3 class="uppercase mt-2 text-black text-lg"> {{ $room->name }}</h3>
             </p>
           </div>

@@ -7,150 +7,107 @@
         </svg>
         Edit
     </a>
-      <modal :name="name" height="auto" width="900" :draggable=true>
+      <modal :name="name" height="auto" width="450" :draggable=true>
+          
+          <div class="container pb-0">
+              <h4>Edit Maintainance</h4>
+          </div>
+          
        <form class="w-full container mx-auto" enctype="multipart/form-data" @submit.prevent.once="submit">
             
-            <div class="flex flex-wrap -mx-3 mb-2">   
-                <p class="text-black text-xl font-bold">New maintenance</p>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-               <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Apartment:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"
+            <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Apartment</label>
+                  <select required class="form-control"
                    v-model="form.property" @change="listofrooms">
                     <option v-for="rental in rentals" :value="rental.id" :key="rental.id" selected="rental.id">{{ rental.name }}</option>
                   </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('property')" v-text="form.errors.get('property')"></p>
                 </div>
-              </div>
-             
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Unit:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Unit</label>
+                  <select required class="form-control"
                    v-model="form.unit">
-                    <option v-for="room in rooms" :value="room.id" :key="room.id" selected="room.id"  >{{ room.name }}</option>
+                    <option v-for="room in rooms" :value="room.id" :key="room.id" >{{ room.name }}</option>
                   </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('unit')" v-text="form.errors.get('unit')"></p>
                 </div>
-              </div>
-              
-              
-    
-              
             </div>
-            
-            <div class="flex flex-wrap -mx-3 mb-6">
-                
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Address to:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight" v-model="form.ptype">
+          </div>
+          
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+              <label for="">Address to</label>
+              <select required class="form-control" v-model="form.ptype">
                     <option v-for="ptype in ptypes" :value="ptype" :key="ptype" selected="ptype">{{ ptype }}</option>
                   </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
                 </div>
-              </div>
-              
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Maintenance Type:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"
+            </div>
+            <div class="col">
+              <div class="form-group">
+              <label for="">Maintenance Type</label>
+              <select required class="form-control"
                    v-model="form.maintenancetype">
                     <option v-for="type in types" :value="type" :key="type" selected="type">{{ type }}</option>
                   </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('maintenancetype')" v-text="form.errors.get('maintenancetype')"></p>
-                </div>
-              </div> 
-              
-
-              
             </div>
-           
-             
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="flex flex-wrap -mx-3 mb-2">   
-              <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                <label  class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
-                  Due Date:
-                </label>
-               <input required type="date" min="today"  class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight" v-model="form.duedate"/>
+            </div>
+        </div>
+            
+      
+      <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Cause</label>
+                  <select required class="form-control" v-model="form.cause">
+                    <option v-for="cause in causes" :value="cause" :key="cause" selected="cause">{{ cause }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('cause')" v-text="form.errors.get('cause')"></p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Due Date</label>
+                  <input required type="date" min="today"  class="form-control" v-model="form.duedate"/>
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('duedate')" v-text="form.errors.get('duedate')"></p>
               </div>
             </div>
-            
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                Cause:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight" v-model="form.cause">
-                    <option v-for="cause in causes" :value="cause" :key="cause" selected="cause">{{ cause }}</option>
-                  </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('cause')" v-text="form.errors.get('cause')"></p>
-                </div>
-              </div>
-              </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
-                 Maintainance Cost:
-                </label>
-                <input type="number" required  class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.cost"/>
+          </div>
+      
+      
+      <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Maintainance Cost</label>
+                  <input type="number" required  class="form-control" v-model="form.cost"/>
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('cost')" v-text="form.errors.get('cost')"></p>
               </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
-                 Action:
-                </label>
-                <div class="relative">
-                  <select required class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Action</label>
+                  <select required class="form-control"
                    v-model="form.action">
                     <option v-for="action in actions" :value="action" :key="action" selected="action">{{ action }}</option>
                   </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('action')" v-text="form.errors.get('action')"></p>
                 </div>
-              </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
-                  Notes:
-                </label>
-                <textarea required rows="6" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.notes"></textarea>
+            </div>
+          </div>
+          
+         <div class="form-group">
+            <label for="">Notes</label>
+            <textarea required rows="3" class="form-control" v-model="form.notes"></textarea>
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('notes')" v-text="form.errors.get('notes')"></p>
               </div>
-            
-          
-        </div>
-            <div class="flex justify-end items-center">
-              <button type="submit" class="bg-green py-2 px-6 text-white font-bold rounded">Update</button>
-            </div>
+              
+              <button type="submit" class="btn btn-default">Update</button>
         </form>
         </modal>
   </div>

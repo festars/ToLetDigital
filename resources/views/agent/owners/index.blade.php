@@ -1,17 +1,32 @@
-@extends('layouts.main')
+@extends('layouts.main2')
+
+@section("page-title", "Property Owners")
+
+
 @section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center shandow-md my-4">
-          <div class="px-2">
-            <p><h3>Property Owners</h3></p>
-          </div>
-             <div>
-            <new-owner></new-owner>
+
+
+<div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Property Owners</h3>
+                </div>
+                <div class="col text-right">
+                  
+                 <new-owner></new-owner>
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
             
-           </div>
-        </div>
-        <div class="flex justify-between items-center my-4">
-            <div class="w-full">
+            <div class="card-body">
+              <div class="table-responsive">
+              <!-- Projects table -->
+              
+
               <table id="example1" class="w-full">
                 <thead class="w-full">
                   <tr class="w-full content-center bg-tolet-blue">
@@ -53,9 +68,20 @@
                     @endforeach
                 </tbody>
               </table>
+
+
+              
             </div>
-         </div>
-    </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+
+
 @endsection
 @section('scripts')
 <script>

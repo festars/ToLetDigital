@@ -15,7 +15,10 @@ class VendorController extends Controller
     public function index()
     {
         $vendors=auth()->user()->vendors;
-        return view("agent.vendor.index","vendors");
+        
+        $vendors = is_null($vendors) ? [] : $vendors;
+        
+        return view("agent.vendor.index",compact("vendors"));
     }
 
     /**
@@ -40,29 +43,28 @@ class VendorController extends Controller
         request()->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:vendors,email|max:255',
-            'aemail' => 'nullable|email|max:255',
+            'altemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',
-            'aphone' => 'nullable|numeric',
-            'type' => 'required'
-            'serviceoffered' => 'required'
+            'location' => 'required',
+            'type' => 'required',
+            'serviceoffered' => 'required',
             'country' => 'required'
         ]);
         
-       // $pass = Str::random(9);
-
-        $tenant = Vendor::create([
+      
+        $vendor = Vendor::create([
             'name'  => request('name'),
             'email' => request('email'),
             'phone' => request('phone'),
-            'aemail' => request('aemail'),
-            'aphone' => request('aphone'),
+            'alternative_email' => request('altemail'),
+            'location' => request('location'),
             'country' => request('country'),
             'type' => request('type'),
             'serviceoffered' => request('serviceoffered'),
             'agent_id' => auth()->user()->id
             //'password' => Hash::make($pass),
         ]);
-
+        
         
         return response()->json([
             'success' => true,
@@ -107,9 +109,10 @@ class VendorController extends Controller
             'aemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',
             'aphone' => 'nullable|numeric',
-            'type' => 'required'
-            'serviceoffered' => 'required'
-            'country' => 'required'
+            'type' => 'required',
+            'serviceoffered' => 'required',
+            'country' => 'required',
+            'location' => 'required'
         ]);
         
    
@@ -121,6 +124,7 @@ class VendorController extends Controller
         $vendor->type = request('type');
         $vendor->serviceoffered = request('serviceoffered');
         $vendor->country = request('country');
+        $vendor->location = request('location');
 
 
         if($vendor->isDirty()){

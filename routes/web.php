@@ -9,6 +9,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::resource('types', 'PropertyTypeController');
         Route::resource('unittypes', 'RoomTypeController');
         Route::resource('period', 'PeriodController');
+        Route::get('agents', 'AgentController@index')->name("agent.index");
+        Route::get('agent/aprrove/{id}', 'AgentController@approve');
+        Route::get('agent/decline/{id}', 'AgentController@decline');
+        Route::get('agent/suspend/{id}', 'AgentController@suspend');
+        Route::get('agent/unsuspend/{id}', 'AgentController@unsuspend');
+        Route::get('owners', 'OwnerController@index')->name("owner.admin");
+        Route::get('owner/aprrove/{id}', 'OwnerController@approve');
+        Route::get('owner/decline/{id}', 'OwnerController@decline');
+        Route::get('owner/suspend/{id}', 'OwnerController@suspend');
+        Route::get('owner/unsuspend/{id}', 'OwnerController@unsuspend');
+        Route::resource('vendor', 'VendorController');
+        Route::resource('tenant', 'TenantController');
+        Route::get('vendor/aprrove/{id}', 'VendorController@approve');
+        Route::get('vendor/decline/{id}', 'VendorController@decline');
+        Route::get('tenant/aprrove/{id}', 'TenantController@approve');
+        Route::get('tenant/decline/{id}', 'TenantController@decline');
     });
 });
 
@@ -38,6 +54,21 @@ Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {
     Route::group(['middleware' => 'auth:owner'], function () {
         Route::get('dashboard', 'OwnerController@index')->name('owner.dashboard');
         Route::get('complains', 'ComplainsController@index')->name('owner.complains');
+        Route::resource('tasks', 'TaskController');
+        Route::post('tenant/assign/{room}/{tenant}', 'TenantController@assign');
+        Route::get('tenant/search', 'TenantController@search');
+        Route::resource('tenant', 'TenantController');
+        Route::post('tenant/profile/{id}', 'TenantController@uploadpic');
+        Route::get('invoice', 'InvoiceController@index')->name('owner.invoice');
+        Route::resource('maintenance', 'MaintenanceController');
+        Route::get('maintenance/approve/{id}', 'MaintenanceController@approve');
+        Route::get('maintenance/decline/{id}', 'MaintenanceController@decline');
+        Route::get('listings/unit/{id}', 'ListingController@units');
+        Route::resource('listings', 'ListingController');
+        Route::resource('rent', 'RentController');
+        Route::resource('expense', 'ExpenseController');
+        Route::resource('room', 'RoomController');
+        
     });
 });
 
@@ -61,6 +92,7 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
         Route::resource('account', 'AccountController');
         Route::resource('rent', 'RentController');
         Route::resource('maintenance', 'MaintenanceController');
+        Route::resource('vendor', 'VendorController');
         Route::resource('expense', 'ExpenseController');
         Route::post('/invoice/email/{invoice}', 'InvoiceController@email');
         Route::resource('invoice', 'InvoiceController');
@@ -69,6 +101,8 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
         Route::get('complains', 'ComplainsController@index')->name('agent.complains');
         Route::get('profile', 'SettingsController@profile')->name("agent.profile");
         Route::post('profile', 'SettingsController@uploadpic')->name("agent.upload");
+        Route::get('expense/approve/{id}', 'ExpenseController@approve');
+        Route::get('expense/decline/{id}', 'ExpenseController@decline');
     });
 });
 
@@ -78,6 +112,9 @@ Route::group(['prefix' => 'vendor', 'namespace' => 'Vendor'], function () {
     Route::post('login', 'VendorController@login');
     Route::group(['middleware' => 'auth:vendor'], function () {
         Route::get('dashboard', 'VendorController@index')->name('vendor.dashboard');
+        Route::resource('maintenance', 'MaintenanceController');
+        Route::resource('expense', 'ExpenseController');
+        Route::resource('tasks', 'TaskController');
     });
 });
 

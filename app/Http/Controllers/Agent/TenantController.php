@@ -61,6 +61,7 @@ class TenantController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'title' => 'required|max:25',
             'name' => 'required|max:255',
             'idnumber' => 'required|numeric',
             'email' => 'required|email|unique:tenants,email|max:255',
@@ -73,6 +74,7 @@ class TenantController extends Controller
         $pass = Str::random(9);
 
         $tenant = Tenant::create([
+            'title'  => request('title'),
             'name'  => request('name'),
             'email' => request('email'),
             'phone' => request('phone'),
@@ -136,6 +138,7 @@ class TenantController extends Controller
     public function update(Request $request, Tenant $tenant)
     {
         request()->validate([
+            'title' => 'required|max:25',
             'name' => 'required|max:255',
             'idnumber' => 'required|numeric',
             'email' => 'required|email|max:255',
@@ -144,6 +147,7 @@ class TenantController extends Controller
             'aphone' => 'nullable|numeric',
         ]);
 
+        $tenant->title = request('title');
         $tenant->name = request('name');
         $tenant->email = request('email');
         $tenant->phone = request('phone');

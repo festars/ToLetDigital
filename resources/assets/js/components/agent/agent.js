@@ -24,3 +24,6 @@ Vue.component("email-invoice", require("./invoice/EmailInvoice.vue"));
 Vue.component("pay-invoice", require("./payments/NewPayment.vue"));
 Vue.component("new-agenttask", require("./tasks/New.vue"));
 Vue.component("edit-agenttask", require("./tasks/Edit.vue"));
+
+Vue.component("new-vendor", require("./vendor/New.vue"));
+Vue.component("edit-vendor", require("./vendor/Edit.vue"));

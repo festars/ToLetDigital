@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Agent;
 use App\Expense;
 use DB;
+use Session;
+use Carbon\Carbon;
 
 class ExpenseController extends Controller
 {
@@ -141,4 +143,26 @@ class ExpenseController extends Controller
         ]);
    
     }
+     public function approve(Request $request, $id)
+    {
+        $expense=Expense::find($id);
+        $expense->approved = 1;
+        $expense->approvedon = Carbon::now();
+        $expense->declinedon = null;
+        $expense->update();
+        Session::flash("msg-success","Expense approved");
+        return redirect()->back();
+    }
+    
+    public function decline(Request $request,$id)
+    {
+        $expense=Expense::find($id);
+        $expense->approved = 0;
+        $expense->approvedon = null;
+        $expense->declinedon = Carbon::now();
+        $expense->save();
+        Session::flash("msg-success","Expense declined");
+        return redirect()->back();
+    }
+
 }

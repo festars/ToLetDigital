@@ -24,6 +24,7 @@ class InvoiceController extends Controller
     {
         if(request('type') === 'unpaid'){
             $invoices =Invoice::unpaid()->where('agent_id',auth()->user()->id)->with('rental')->get();
+          //  dd($invoices);
         }else{
            $invoices =Invoice::paid()->where('agent_id',auth()->user()->id)->with('rental')->get();
         }

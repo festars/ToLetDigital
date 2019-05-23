@@ -10,6 +10,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
         <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
     </head>
     <body class="bg-teal">
@@ -41,6 +42,8 @@
         </div>
 
         <script src="/js/form.js"></script>
+        
         <script src="{{ mix('/js/app.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
     </body>
 </html>

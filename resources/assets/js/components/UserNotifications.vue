@@ -1,49 +1,111 @@
 <template>
-    <div @mouseover="activate" @mouseout="deactivate">
-       <div class="rounded-full bg-blue-darkest w-10 h-10 flex items-center justify-center mr-4 cursor-pointer relative z-10">
-            <!-- "New Notifications Available" bubble. -->
-            <div class="rounded-full bg-red w-2 h-2 absolute pin-t pin-r mt-1" v-if="notifications.length"></div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" class="fill-current">
-                <g fill="none" fill-rule="evenodd"  >
-                    <path d="M-4-2h24v24H-4z"/>
-                    <path fill="#FFF" d="M8 20c1.1 0 2-.9 2-2H6a2 2 0 0 0 2 2zm6-6V9c0-3.07-1.64-5.64-4.5-6.32V2C9.5 1.17 8.83.5 8 .5S6.5 1.17 6.5 2v.68C3.63 3.36 2 5.92 2 9v5l-2 2v1h16v-1l-2-2z"/>
-                </g>
-            </svg>
-        </div>
-
-        <div class="relative" v-show="active">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-bell"></span>
-            </a>
-
-            <div class="bg-grey-light p-6 text-black absolute rounded"
-                 style="border-top-right-radius: 28px 22px; width: 313px; top: -32px; right: 23px"
-            >
-                <h4 class="mb-4">Notifications</h4>
-
-                <ul class="list-reset">
-                    <li v-for="(notification, index) in notifications"
-                        :key="notification.id"
-                        :class="index === notifications.length - 1 ? '' : 'mb-4'"
-                    >
-                        <a :href="notification.data.link"
-                           class="text-xs flex items-center pr-1 link"
-                           @click.prevent="markAsRead(notification)"
-                        >
-                            <img :src="notification.data.notifier.avatar_path"
-                                 :alt="notification.data.notifier.username"
-                                 class="w-8 mr-3">
-
-                            <span v-text="notification.data.message"></span>
-                        </a>
-                    </li>
-
-                    <li v-if="! notifications.length" class="text-xs">You have zero notifications.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <ul class="navbar-nav align-items-center ml-md-auto">
+            <li class="nav-item d-xl-none">
+              <!-- Sidenav toggler -->
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark active" data-action="sidenav-pin" data-target="#sidenav-main">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ni ni-bell-55"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
+                <!-- Dropdown header -->
+                <div class="px-3 py-3" v-if="notifications.length">
+                  <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">13</strong> notifications.</h6>
+                </div>
+                
+                <div class="px-3 py-3" v-if="! notifications.length">
+                  <h6 class="text-sm text-muted m-0 text-center">You have no nofications</h6>
+                </div>
+                
+                <!-- List group -->
+                <div v-if="notifications.length" class="list-group list-group-flush">
+                  <a :href="notification.data.link" class="list-group-item list-group-item-action" v-for="(notification, index) in notifications"
+                        :key="notification.id" @click.prevent="markAsRead(notification)">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <img :src="notification.data.notifier.avatar_path"
+                                 :alt="notification.data.notifier.username" class="avatar rounded-circle">
+                      </div>
+                      <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <h4 class="mb-0 text-sm">John Snow</h4>
+                          </div>
+                          <div class="text-right text-muted">
+                            <small>2 hrs ago</small>
+                          </div>
+                        </div>
+                        <p class="text-sm mb-0">{{ notification.data.message }}</p>
+                      </div>
+                    </div>
+                  </a>
+                  
+                  
+                </div>
+                <!-- View all -->
+                <a href="#!" v-if="notifications.length" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ni ni-ungroup"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default dropdown-menu-right">
+                <div class="row shortcuts px-4">
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                      <i class="ni ni-calendar-grid-58"></i>
+                    </span>
+                    <small>Calendar</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
+                      <i class="ni ni-email-83"></i>
+                    </span>
+                    <small>Email</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
+                      <i class="ni ni-credit-card"></i>
+                    </span>
+                    <small>Payments</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
+                      <i class="ni ni-books"></i>
+                    </span>
+                    <small>Reports</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
+                      <i class="ni ni-pin-3"></i>
+                    </span>
+                    <small>Maps</small>
+                  </a>
+                  <a href="#!" class="col-4 shortcut-item">
+                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
+                      <i class="ni ni-basket"></i>
+                    </span>
+                    <small>Shop</small>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+    
 </template>
 
 <script>

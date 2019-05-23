@@ -7,19 +7,30 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>ToLet</title>
-           @include('layouts.javascript')
+          
             
         <!-- Fonts -->
+        <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+
         
         <!--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">-->
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css" />
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/buttons.bootstrap4.min.css" type="text/css" />
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/select.bootstrap4.min.css" type="text/css" />
+
 
         <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
+         @include('layouts.javascript')
         @yield('style')
        
     </head>
-    <body class="" id="app" data-app>
+    <body class="">
         
         
           <!-- Sidenav -->
@@ -115,26 +126,26 @@
         <!-- Navigation -->
         
         @if(Auth::guard('owner')->check())
-            @include('owner.side')
+            @include('owner.side2')
         @elseif(Auth::guard('agent')->check())
             @include('agent.side2')
         @elseif(Auth::guard('admin')->check())
-             @include('admin.side')
+             @include('admin.side2')
         @elseif(Auth::guard('vendor')->check())
-             @include('vendor.side')
+             @include('vendor.side2')
         @elseif(Auth::guard('demo')->check())
              @include('demo.side')
         @else
-            @include('tenant.side')
+            @include('tenant.side2')
         @endif
         
         
         <!-- Divider -->
-        <hr class="my-3">
+        <!--<hr class="my-3">-->
         <!-- Heading -->
-        <h6 class="navbar-heading text-muted">Documentation</h6>
+        <!--<h6 class="navbar-heading text-muted">Documentation</h6>-->
         <!-- Navigation -->
-        <ul class="navbar-nav mb-md-3">
+        <!--<ul class="navbar-nav mb-md-3">
           <li class="nav-item">
             <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
               <i class="ni ni-spaceship"></i> Getting started
@@ -150,13 +161,13 @@
               <i class="ni ni-ui-04"></i> Components
             </a>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
   </nav>
   
   <!-- Main content -->
-  <div class="main-content">
+  <div class="main-content" id="app" data-app>
     <!-- Top navbar -->
     
     @include('layouts.top2')
@@ -166,96 +177,14 @@
       <div class="container-fluid">
         <div class="header-body">
           <!-- Card stats -->
-          <div class="row">
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                      <span class="h2 font-weight-bold mb-0">350,897</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                        <i class="fas fa-chart-bar"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                      <span class="h2 font-weight-bold mb-0">2,356</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                        <i class="fas fa-chart-pie"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last week</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                        <i class="fas fa-users"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                    <span class="text-nowrap">Since yesterday</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                        <i class="fas fa-percent"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+          @yield("top-content")
+          
         </div>
       </div>
     </div>
     <!-- Page content -->
+    
     <div class="container-fluid mt--7">
       
       
@@ -281,11 +210,19 @@
     
   </div>
   
-
+</div>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
         <script src="/js/form.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+                <script src="//cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+        <script src="//cdn.datatables.net/1.10.18/js/dataTables.buttons.min.js"></script>
+        
+        <script src="//cdn.datatables.net/1.10.18/js/dataTables.select.min.js"></script>
+        
+
         <script src="//cdn.datatables.net/plug-ins/1.10.19/api/sum().js"></script>
         <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     

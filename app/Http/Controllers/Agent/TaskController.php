@@ -20,7 +20,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = auth()->user()->tasks;
-        
+         
         return view('agent.tasks.index', compact('tasks'));
     }
 
@@ -42,7 +42,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->file('file'));
+       
         
         $data = request()->validate([
             'property'=>'required|exists:rentals,id',

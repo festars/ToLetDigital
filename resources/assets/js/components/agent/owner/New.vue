@@ -1,71 +1,72 @@
 <template>
     <div class="w-full">
         <button class="no-underline bttn bg-tolet-blue hover:bg-blue-ddark" @click="show">Create</button>
-        <modal name="open-owner" height="auto" width="900" :draggable=true>
-            <form class="w-full max-w-xl py-8" @submit.prevent="submit">
-            <div class="flex flex-wrap mb-6">
-                <div class="flex flex-wrap mb-2">
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4"for="grid-first-name">
-                     Name
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3 leading-tight" v-model="form.name" id="grid-first-name" type="text" placeholder="James Doe">
-                  </div>
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-last-name">
-                      Email
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.email" type="email" placeholder="tolet@mail.com">
+        <modal name="open-owner" height="auto" width="450" :draggable=true>
+          
+          <div class="container pb-0"><h4>Create Property Owner</h4></div>
+          
+            <form class="w-full container mx-auto" @submit.prevent="submit">
+              
+              <div class="form-group">
+                <label for="">Name</label>
+                    <input class="form-control" v-model="form.name" id="grid-first-name" type="text" placeholder="James Doe">
+              </div>
+              
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input class="form-control"  v-model="form.email" type="email" placeholder="tolet@mail.com">
                     <p class="text-red text-xs italic my-2" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></p>
                   </div>
-                  
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-last-name">
-                      Alternative Email
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.aemail" type="email" placeholder="tolet@mail.com">
-                    <p class="text-red text-xs italic my-2" v-if="form.errors.has('aemail')" v-text="form.errors.get('aemail')"></p>
-                  </div>
                 </div>
-                <div class="flex flex-wrap mb-2">
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-state">
-                      Country
-                    </label>
-                    <div class="relative">
-                      <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"  v-model="form.country">
+                <div class="col">
+                    <div class="form-group">
+                      <label for="">Alternative Email</label>
+                    <input class="form-control"  v-model="form.aemail" type="email" placeholder="tolet@mail.com">
+                    <p class="text-red text-xs italic my-2" v-if="form.errors.has('aemail')" v-text="form.errors.get('aemail')"></p>
+                    </div>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="">Country</label>
+                      <select class="form-control"  v-model="form.country">
                         <option v-for="(value,key) in countries" :value="key">{{value}}</option>
                       </select>
-                      <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-city">
-                      City
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.city" type="text" placeholder="Albuquerque">
-                  </div>
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-zip">
-                      Phone
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.phone" type="text" placeholder="254700000000">
-                  </div>
-                  
-                  <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="label w-1/4" for="grid-zip">
-                      Alternative Phone
-                    </label>
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight"  v-model="form.altphone" type="text" placeholder="254700000000">
+                      <p class="text-red text-xs italic my-2" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></p>
                   </div>
                 </div>
-            </div>
-            <div class="flex justify-end items-center">
+                <div class="col">
+                    <div class="form-group">
+                      <label for="">City</label>
+                    <input class="form-control"  v-model="form.city" type="text" placeholder="Albuquerque">
+                    </div>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="">Phone</label>
+                    <input class="form-control"  v-model="form.phone" type="text" placeholder="254700000000">
+                  </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                      <label for="">Alternative Phone</label>
+                    <input class="form-control"  v-model="form.altphone" type="text" placeholder="254700000000">
+                    </div>
+                </div>
+              </div>
+              
+              
+            <!--<div class="flex justify-end items-center">
               <button type="submit" class="bg-green hover:bg-green-darker py-2 px-6 text-white font-bold rounded">Create</button>
-            </div>
+            </div>-->
+           <button type="submit" class="btn btn-default">Create</button>
         </form>
     </modal>
     </div>

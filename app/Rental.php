@@ -35,6 +35,11 @@ class Rental extends Model
     {
         return $this->belongsTo(Agent::class,'agent_id');
     }
+    
+     public function owner()
+    {
+        return $this->belongsTo(Owner::class,'owner_id');
+    }
 
     public function previousTenants()
     {

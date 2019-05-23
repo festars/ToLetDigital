@@ -1,95 +1,114 @@
 <template>
   <div class="w-full">
     <button class="no-underline bttn bg-tolet-blue hover:bg-blue-ddark" @click="show">Create</button>
-      <modal name="open-listing" height="auto" width="900" :draggable=true>
+      <modal name="open-listing" height="auto" width="450" :draggable=true>
+        
+        <div class="container pb-0"><h4>Create Property</h4></div>
+        
        <form class="w-full container mx-auto" @submit.prevent="submit">
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-first-name">
-                 Property Type
-                </label>
-                <div class="relative">
-                  <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight" v-model="form.ptype">
-                    <option v-for="ptype in ptypes" :value="ptype.id" :key="ptype.id">{{ ptype.name }}</option>
-                  </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 px-3">
-                <label class="label" for="grid-last-name">
-                  Property Owner
-                </label>
-                <div class="relative">
-                  <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight" v-model="form.owner">
-                    <option v-for="owner in owners" :value="owner.id" :key="owner.id">{{ owner.name }}</option>
-                  </select>
-                  <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('owner')" v-text="form.errors.get('owner')"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap -mx-3 mb-2">
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-first-name">
-                 Name
-                </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3 leading-tight" v-model="form.name" type="text" placeholder="Tolet Apartment">
-                <p class="text-red text-xs italic my-2" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
-              </div>
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-last-name">
-                  Location
-                </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.location" type="text" placeholder="Doe">
+         
+          <div class="form-group">
+            <label for="">Name</label>
+            <input class="form-control" v-model="form.name" type="text" placeholder="Tolet Apartment">
+            <p class="text-red text-xs italic my-2" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
+          </div>
+          
+          
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Location</label>
+                <input class="form-control" v-model="form.location" type="text" placeholder="Doe">
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('location')" v-text="form.errors.get('location')"></p>
               </div>
-              
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                 <label class="label" for="grid-state">
-                      Country
-                    </label>
-                    <div class="relative">
-                      <select class="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded leading-tight"  v-model="form.country">
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Country</label>
+                  <select class="form-control"  v-model="form.country">
                         <option v-for="(value,key) in countries" :value="key">{{value}}</option>
                       </select>
-                      <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                      </div>
-                    </div>
-              </div>
+                </div>
             </div>
-            <div class="flex flex-wrap -mx-3 mb-2">
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-state">
-                  Plot No
-                </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.land" type="text" placeholder="E/L 8976">
+          </div>
+          
+          
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Plot No</label>
+                <input class="form-control" v-model="form.land" type="text" placeholder="E/L 8976">
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('land')" v-text="form.errors.get('land')"></p>
               </div>
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-state">
-                  Main color
-                </label>
-                <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.color" type="text" placeholder="blue">
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Main Color</label>
+                  <input class="form-control" v-model="form.color" type="text" placeholder="blue">
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('color')" v-text="form.errors.get('color')"></p>
               </div>
-              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label class="label" for="grid-state">
-                  Notes
-                </label>
-                <textarea class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 leading-tight" v-model="form.description"></textarea>
+            </div>
+          </div>
+          
+          <div class="form-group">
+                  <label for="">Notes</label>
+                  <textarea class="form-control" v-model="form.description"></textarea>
                 <p class="text-red text-xs italic my-2" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></p>
               </div>
+              
+              
+        
+        <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Property Type</label>
+                <select class="form-control" v-model="form.ptype">
+                    <option v-for="ptype in ptypes" :value="ptype.id" :key="ptype.id">{{ ptype.name }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
+              </div>
             </div>
-            <div class="flex justify-end items-center">
-              <button type="submit" class="bg-green py-2 px-6 text-white font-bold rounded">Create</button>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Property Owner</label>
+                 <select class="form-control" v-model="form.owner">
+                    <option v-for="owner in owners" :value="owner.id" :key="owner.id">{{ owner.name }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('owner')" v-text="form.errors.get('owner')"></p>
+                </div>
             </div>
+          </div>
+          
+          
+          
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="">Payment Option</label>
+                <select class="form-control" v-model="form.pmode">
+                    <option v-for="pmode in pmodes" :value="pmode.id" :key="pmode.id">{{ pmode.name }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('pmode')" v-text="form.errors.get('pmode')"></p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Payment Type</label>
+                 <select class="form-control" v-model="form.pmode">
+                    <option v-for="pmnttype in payment_types" :value="pmnttype.id" :key="pmnttype.id">{{ pmnttype.name }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('pmnttype')" v-text="form.errors.get('pmnttype')"></p>
+                </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+                  <label for="">Payment Details</label>
+                <textarea class="form-control" v-model="form.description"></textarea>
+                <p class="text-red text-xs italic my-2" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></p>
+              </div>
+            
+              <button type="submit" class="btn btn-default">Create</button>
         </form>
         </modal>
   </div>
@@ -100,19 +119,24 @@
   export default{
       props:[
         'ptypes',
-        'owners'
+        'owners',
+        'pmodes',
+        'payment_types'
       ],
       data(){
         return {
            form:new Form({
-                    'ptype':'',
-                    'owner':'',
-                    'name':'',
-                    'location':'',
-                    'country':'',
-                    'land':'',
-                    'color':'',
-                    'notes':''
+                    'ptype'       :'',
+                    'owner'       :'',
+                    'name'        :'',
+                    'pmode'       :'',
+                    'payment_type':'',
+                    'pdetails'    :'',
+                    'location'    :'',
+                    'country'     :'',
+                    'land'        :'',
+                    'color'       :'',
+                    'notes'       :''
                 }),
           'countries':window.App.countries,
         }

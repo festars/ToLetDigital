@@ -5,6 +5,7 @@ namespace App;
 use App\Room;
 use App\Listing;
 use App\Complain;
+use App\Vendor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -71,6 +72,11 @@ class Agent extends Authenticatable
      public function maintenances()
     {
         return $this->hasMany(Maintenance::class, 'agent_id');
+    }
+    
+    public function vendors()
+    {
+        return $this->hasMany(Vendor::class, 'agent_id');
     }
     
     public function expenses()

@@ -27,6 +27,7 @@
                   </button>
               </div>
               
+              
               <form role="form" @submit.prevent="login">
                 <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
@@ -152,6 +153,7 @@ export default {
       this.form
         .post("/" + this.entity + "/login")
         .then(response => {
+          //console.log(response);
           location.replace(response.url);
         })
         .catch(errors => {

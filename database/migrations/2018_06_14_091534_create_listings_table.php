@@ -16,9 +16,11 @@ class CreateListingsTable extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('property_type_id');
+            $table->integer('property_options_id');
             $table->integer('owner_id');
             $table->integer('agent_id')->nullable();
             $table->string('name');
+            $table->string('status')->nullable();
             $table->string('land')->nullable();
             $table->string('country')->nullable();
             $table->point('latlong')->nullable();

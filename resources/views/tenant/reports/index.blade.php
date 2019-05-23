@@ -1,32 +1,38 @@
-@extends('layouts.main')
+@extends('layouts.main2')
+
+@section("page-title", "Reports")
+
+
 @section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center my-4">
-            <div class="w-full">
-              <div class="flex items-center">
-                <div class="left-table w-full my-4 mx-4">
-                  <div class="container mx-auto flex justify-between items-center w-full my-2">
-                    <div><p class="uppercase font-semibold text-lg text-blue-dark underline">Reports</p></div>
-                   
-                  </div>
-                  <div class="row ">
-                     <div class="card">
-                          <div class="card-header">
-                            My Details
-                          </div>
-                          
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Name : {{$tenant->name}}</li>
-                                <li class="list-group-item">Phone : {{$tenant->phone}}</li>
-                                <li class="list-group-item">Email : {{$tenant->email}}</li>
-                                <li class="list-group-item">Country : {{$tenant->country}}</li>
-                            </ul>
-                        
-                        </div>
-                    </div>
+<div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Reports</h3>
+                </div>
+                <div class="col text-right">
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
                 </div>
               </div>
             </div>
-         </div>
-    </div>
+            
+            <div class="card-body">
+              
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Name : {{$tenant->name}}</li>
+                  <li class="list-group-item">Phone : {{$tenant->phone}}</li>
+                  <li class="list-group-item">Email : {{$tenant->email}}</li>
+                  <li class="list-group-item">Country : {{$tenant->country}}</li>
+              </ul>
+
+              </div>
+            
+            </div>
+        </div>
+        
+      </div>
+
+
 @endsection

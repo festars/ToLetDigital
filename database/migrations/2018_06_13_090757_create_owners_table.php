@@ -26,6 +26,7 @@ class CreateOwnersTable extends Migration
             $table->integer('total_units')->unsigned()->default(0);
             $table->integer('total_tenants')->unsigned()->default(0);
             $table->integer('isApproved')->nullable();
+            $table->integer('suspended')->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->string('session_id');
             $table->softDeletes();
