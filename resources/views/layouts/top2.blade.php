@@ -63,6 +63,6 @@
         </form>
         <user-notifications></user-notifications>
         <!-- User -->
-        <top-right-drop entity="{{Request::route()->getPrefix().'/profile'}}"></top-right-drop>
+        <top-right-drop entity="{{Request::route()->getPrefix()}}"></top-right-drop>
       </div>
     </nav>

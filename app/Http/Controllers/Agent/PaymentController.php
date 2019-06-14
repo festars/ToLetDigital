@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function index()
     {
         $invoices =Invoice::paid()->where('agent_id', auth()->user()->id)->get();

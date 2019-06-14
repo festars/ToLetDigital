@@ -95,14 +95,19 @@
             register(){
                 this.form.post('/register')
                 .then(response => {
-                    location.replace('/home');
+                  
+                  if (response.message){
+                    //console.log(response);
+                    location.replace('/');
+                  }
+                    
                 })
                 .catch(errors => {
-
+                  console.log(errors);
                 });
             },
             onInput({ number, isValid, country }) {
-              console.log(number, isValid, country);
+              //console.log(number, isValid, country);
             },
         },
 

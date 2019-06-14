@@ -22,6 +22,11 @@ class TenantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+      public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function index()
     {
         $rentals = Auth::user()->rentals->map(function ($rental) {

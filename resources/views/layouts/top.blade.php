@@ -10,7 +10,7 @@
                     <user-notifications></user-notifications>
                 </div>
                 @auth
-                <top-right-drop entity="{{Request::route()->getPrefix().'/profile'}}"></top-right-drop>
+                <top-right-drop entity="{{Request::route()->getPrefix()}}"></top-right-drop>
 
                 @endauth
             </div>

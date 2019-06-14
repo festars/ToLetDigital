@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Agent;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Agent;
 use DB;
+use Session;
 
 
 class AgentController extends Controller
@@ -39,7 +41,7 @@ class AgentController extends Controller
 
     public function login()
     {
-        if (!Auth::guard('agent')->attempt(['email' => request('username'), 'password' => request('password')])) {
+        if (!Auth::guard('agent')->attempt(['email' => request('username'), 'password' => request('password'),'isApproved'=>1])) {
             return response()->json(['message' => 'Wrong Password/Email combination.'], 401);
         }
         $url = '/agent/dashboard';
@@ -48,6 +50,28 @@ class AgentController extends Controller
     }
     
     public function resetPassword(){
-        return view("auth.passwords.reset");
+        $user=auth()->user();
+       // dd($user);
+        return view("auth.passwords.reset",compact('user'));
+    }
+    
+     public function password (Request $request)
+    {
+        
+        
+        request()->validate([
+             'password' => 'required|string|min:6|confirmed'
+        ]);
+        
+        $agent=auth()->user();
+
+        $agent->password = Hash::make(request('password'));
+       
+
+        if($agent->isDirty()){
+            $agent->update();
+        }
+        Session::flash("msg-success","Password changed successfully");
+        return redirect("agent/profile"); 
     }
 }

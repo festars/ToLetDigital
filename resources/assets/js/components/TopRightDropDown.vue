@@ -15,7 +15,7 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-              <a :href="entity" class="dropdown-item">
+              <a :href="profile" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
@@ -27,12 +27,12 @@
                 <i class="ni ni-calendar-grid-58"></i>
                 <span>Activity</span>
               </a>-->
-              <a href="#!" class="dropdown-item">
+              <a :href="pass" class="dropdown-item">
                 <i class="ni ni-support-16"></i>
-                <span>Support</span>
+                <span>Change Password</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#!" class="dropdown-item" @click="logout">
+              <a href="logout" class="dropdown-item" @click="logout">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
@@ -45,7 +45,7 @@
     export default {
         mounted() {
             //alert(1)
-            //console.log(this.entity);
+            console.log(this.entity);
         },
 
         props:['entity'],
@@ -58,15 +58,21 @@
             return {
                 user: window.App.user,
                 src:window.App.user.profilepic,
-                drop:false
+                drop:false,
+                profile:this.entity+"/profile",
+                pass:this.entity+"/password/reset"
+                
             }
         },
 
         methods: {
             logout(){
-                axios.post(`/logout`)
+                axios.get(`/logout`)
                     .then(response => {
-                        location.reload();
+                      if(response.success){
+                        //location.replace("/login");
+                      }
+                        
                     })
                     .catch(errors => {
 

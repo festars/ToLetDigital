@@ -33,7 +33,7 @@ class OwnerController extends Controller
 
     public function login()
     {
-        if (!Auth::guard('owner')->attempt(['email' => request('username'), 'password' => request('password')])) {
+        if (!Auth::guard('owner')->attempt(['email' => request('username'), 'password' => request('password'),'isApproved' => 1])) {
             return response()->json(['message' => 'Wrong Password/Email combination.'], 401);
         }
         $url = '/owner/dashboard';

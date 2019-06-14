@@ -97,7 +97,7 @@ class ExpenseController extends Controller
      */
     public function show(Expense $expense)
     {
-        //
+        return view("vendor.expenses.view",compact($expense));
     }
 
     /**

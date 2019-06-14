@@ -39,4 +39,29 @@ class LoginController extends Controller
                 'url' => route('admin.dashboard')
         ], 200);
     }
+     public function resetPassword(){
+        $user=auth()->user();
+       // dd($user);
+        return view("auth.passwords.reset",compact('user'));
+    }
+    
+     public function password (Request $request)
+    {
+        
+        
+        request()->validate([
+             'password' => 'required|string|min:6|confirmed'
+        ]);
+        
+        $agent=auth()->user();
+
+        $agent->password = Hash::make(request('password'));
+       
+
+        if($agent->isDirty()){
+            $agent->update();
+        }
+        Session::flash("msg-success","Password changed successfully");
+        return redirect("/"); 
+    }
 }

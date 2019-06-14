@@ -16,15 +16,17 @@ class LoginController extends Controller
     public function login()
     {
         request()->validate([
-            'username' => 'required|email',
+            'username' => 'required|email|exists:agents,email,isApproved,1',
             'password' => 'required'
         ]);
 
         $credentials =  [
             'email' => request('username'),
-            'password' => request('password')
+            'password' => request('password'),
+            'isApproved'=>1
+            
          ];
-
+dd(Auth::guard('agent')->attempt($credentials));
         if(!Auth::guard('agent')->attempt($credentials)){
             return response()->json(['message' => 'Wrong Password/Email/Login-type combination.'],401);
         }

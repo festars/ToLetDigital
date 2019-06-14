@@ -13,6 +13,12 @@ class RentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
+      public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function index()
     {
         $rooms = auth()->user()->rooms;

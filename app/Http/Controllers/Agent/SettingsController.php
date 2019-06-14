@@ -8,6 +8,12 @@ use Auth;
 use App\Agent;
 class SettingsController extends Controller
 {
+    
+     public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function profile(){
         $user=auth()->user();
         $entity='agent';

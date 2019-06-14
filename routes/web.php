@@ -4,6 +4,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('login', 'LoginController@show')->name('admin.login');
     Route::post('login', 'LoginController@login');
     Route::group(['middleware' => 'auth:admin'], function () {
+        Route::get('/password/reset','DashboardController@resetPassword');
+        Route::post('/password/reset','DashboardController@password')->name("admin.reset");
         Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
         Route::get('types/json', 'PropertyTypeController@json');
         Route::resource('types', 'PropertyTypeController');
@@ -33,6 +35,8 @@ Route::group(['prefix' => 'tenant', 'namespace' => 'Tenant'], function () {
     Route::get('login', 'TenantController@showLogin')->name('tenant.login');
     Route::post('login', 'TenantController@login');
     Route::group(['middleware' => 'auth:tenant'], function () {
+        Route::get('/password/reset','TenantController@resetPassword');
+        Route::post('/password/reset','TenantController@password')->name("tenant.reset");
         Route::get('dashboard', 'TenantController@index')->name('tenant.dashboard');
         Route::get('room/{room}', 'TenantController@show')->name('tenant.room');
         Route::get('invoice', 'InvoiceController@index')->name('tenant.invoice');
@@ -52,6 +56,8 @@ Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {
     Route::get('login', 'OwnerController@showLogin')->name('owner.login');
     Route::post('login', 'OwnerController@login');
     Route::group(['middleware' => 'auth:owner'], function () {
+        Route::get('/password/reset','OwnerController@resetPassword');
+        Route::post('/password/reset','OwnerController@password')->name("owner.reset");
         Route::get('dashboard', 'OwnerController@index')->name('owner.dashboard');
         Route::get('complains', 'ComplainsController@index')->name('owner.complains');
         Route::resource('tasks', 'TaskController');
@@ -76,9 +82,10 @@ Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {
 Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
     Route::get('login', 'AgentController@showLogin')->name('agent.login');
     Route::post('login', 'AgentController@login');
-    Route::get('/password/reset','AgentController@resetPassword')->name('password.request');
-    Route::post('/password/reset','AgentController@password')->name('agent.reset');
+    
     Route::group(['middleware' => 'auth:agent'], function () {
+        Route::get('/password/reset','AgentController@resetPassword')->name('password.request');
+        Route::post('/password/reset','AgentController@password')->name('agent.reset');
         Route::get('dashboard', 'AgentController@index')->name('agent.dashboard');
         Route::resource('listing', 'ListingController');
         Route::resource('owner', 'OwnerController');
@@ -111,6 +118,8 @@ Route::group(['prefix' => 'vendor', 'namespace' => 'Vendor'], function () {
     Route::get('login', 'VendorController@showLogin')->name('vendor.login');
     Route::post('login', 'VendorController@login');
     Route::group(['middleware' => 'auth:vendor'], function () {
+        Route::get('/password/reset','VendorController@resetPassword');
+        Route::post('/password/reset','VendorController@password')->name("vendor.reset");
         Route::get('dashboard', 'VendorController@index')->name('vendor.dashboard');
         Route::resource('maintenance', 'MaintenanceController');
         Route::resource('expense', 'ExpenseController');
@@ -136,6 +145,14 @@ Route::get('/howitworks', 'SystemController@howitworks')->name('sys.howitworks')
 Route::get('/whyusethesoftware', 'SystemController@whyusethesoftware')->name('sys.whyusethesoftware');
 Route::get('/whatyouget', 'SystemController@whatyouget')->name('sys.whatyouget');
 Route::post('/system/login', 'SystemController@login')->name('sys.login.post');
+Route::get('register','Auth\RegisterController@showRegistrationForm');
+Route::post('register', [
+  'as' => '',
+  'uses' => 'Auth\RegisterController@register'
+]);
+
+Route::get('{entity}/logout', 'Auth\LoginController@logout');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
+

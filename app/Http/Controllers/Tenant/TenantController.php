@@ -6,6 +6,8 @@ use App\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Hash;
+use Session;
 
 class TenantController extends Controller
 {
@@ -39,11 +41,37 @@ class TenantController extends Controller
 
     public function login()
     {
-        if (!Auth::guard('tenant')->attempt(['email' => request('username'), 'password' => request('password')])) {
+        if (!Auth::guard('tenant')->attempt(['email' => request('username'), 'password' => request('password'),'isApproved' => 1])) {
             return response()->json(['message' => 'Wrong Password/Email combination.'], 401);
         }
         $url = '/tenant/dashboard';
 
         return response()->json(['message' => 'Successful Login','url' => $url]);
+    }
+        
+      public function resetPassword(){
+        $user=auth()->user();
+       // dd($user);
+        return view("auth.passwords.reset",compact('user'));
+    }
+    
+     public function password (Request $request)
+    {
+        
+        
+        request()->validate([
+             'password' => 'required|string|min:6|confirmed'
+        ]);
+        
+        $admin=auth()->user();
+
+        $admin->password = Hash::make(request('password'));
+       
+
+        if($admin->isDirty()){
+            $admin->update();
+        }
+        Session::flash("msg-success","Password changed successfully");
+        return redirect("/tenant/profile"); 
     }
 }

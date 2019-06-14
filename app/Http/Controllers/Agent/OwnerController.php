@@ -17,6 +17,12 @@ class OwnerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
+      public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function index()
     {
         // $listings = auth()->user()->listings->where("agent_id",auth()->user()->id);

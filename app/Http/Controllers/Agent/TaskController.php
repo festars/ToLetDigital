@@ -17,6 +17,11 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+      public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
+    
     public function index()
     {
         $tasks = auth()->user()->tasks;

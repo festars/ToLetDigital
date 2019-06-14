@@ -34,7 +34,7 @@
 
                     <!-- Start of menu -->
                     <div class="container flex-1 overflow-auto max-h-screen">
-                        <img src="/img/logo1.png" class="h-48 w-48 rounded-full">
+                        <img src="//img/logo1.png" class="h-48 w-48 rounded-full">
                             @if(Auth::guard('owner')->check())
                                 @include('owner.side')
                             @elseif(Auth::guard('agent')->check())

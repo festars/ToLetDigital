@@ -36,8 +36,8 @@ class VendorController extends Controller
 
         $credentials =  [
             'email' => request('username'),
-            'password' => request('password')
-            // 'approved' => 1
+            'password' => request('password'),
+            'approved' => 1
          ];
         
         if (Auth::guard('vendor')->attempt($credentials)) {

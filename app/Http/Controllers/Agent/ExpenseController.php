@@ -18,6 +18,10 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+      public function __construct()
+    {
+        $this->middleware('auth:agent');
+    }
     public function index()
     {
          $expenses = auth()->user()->expenses;

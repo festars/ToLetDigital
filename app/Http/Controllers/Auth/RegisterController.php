@@ -8,6 +8,8 @@ use App\Owner;
 use App\Tenant;
 use App\User;
 use Carbon\Carbon;
+use Mail;
+use App\Mail\AgentWelcomeMail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -68,33 +70,45 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-       $user = User::create([
+       
+
+ try {
+        //     $user = User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'phone' => $data['phone'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+
+
+        $agent = Agent::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
-
-
-        Agent::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
-        ]);
-
-
-
+        
+         Mail::to($data['email'])->send(new AgentWelcomeMail ($agent,$data['password']));
+        
+        
+        } catch (\Exception $exception) {
+            logger()->error($exception);
+            return redirect()->back()->with('message', 'Unable to create new user.');
+        }
+       
         return $user;
+
+        
     }
 
     protected function registered($request, $user)
     {
-       return redirect('/home');
+    
+       return redirect('/');
     }
 
     public function redirectPath()
     {
-        return redirect('/home');
+        return redirect('/');
     }
 }
