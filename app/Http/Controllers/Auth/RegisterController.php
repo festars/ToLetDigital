@@ -10,6 +10,7 @@ use App\User;
 use Carbon\Carbon;
 use Mail;
 use App\Mail\AgentWelcomeMail;
+use App\Mail\Registration;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -88,7 +89,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
         
-         Mail::to($data['email'])->send(new AgentWelcomeMail ($agent,$data['password']));
+         Mail::to($data['email'])->send(new Registration ($agent));
         
         
         } catch (\Exception $exception) {

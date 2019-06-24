@@ -82,7 +82,7 @@ class TenantController extends Controller
 
         
 
-        $room = Room::findOrFail(request('room'));
+        $room = Room::findOrFail(request('unit'));
 
         $room->rentals()->create([
             'tenant_id' => $tenant->id,

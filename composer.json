@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.1",
+        "africastalking/africastalking": "^2.2",
         "consoletvs/invoices": "^1.1",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.3",

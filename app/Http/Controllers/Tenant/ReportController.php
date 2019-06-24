@@ -5,6 +5,7 @@ use App\Notice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use App\Tenant;
 
 class ReportController extends Controller
 {
@@ -15,7 +16,10 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $tenant=Auth::user();
+      
+        $tenant=Tenant::where('email',Auth::user()->email)->withCount(["complains","notices","tasks"])->first();
+        //dd($tenant);
+    
         return view("tenant.reports.index",compact('tenant'));
     }
 

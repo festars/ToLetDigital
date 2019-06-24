@@ -172,8 +172,11 @@ export default {
         .catch(errors => {});
     },
     listofrooms(){
+     
             var apt =_.find(this.rentals, { 'id': this.form.property })
             this.rooms= apt.rooms;
+            
+            
          },
     setDefault(group) {
       this.form.name = group.selectedObject.name;
@@ -186,6 +189,7 @@ export default {
       this.form.property = group.selectedObject.property;
       this.form.title = group.selectedObject.title;
       this.form.type = group.selectedObject.type;
+      this.form.idnumber = group.selectedObject.idnumber;
     },
     enterPressed() {
       console.log("enter pressed here");

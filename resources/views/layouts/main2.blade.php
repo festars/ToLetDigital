@@ -224,6 +224,7 @@
         
 
         <script src="//cdn.datatables.net/plug-ins/1.10.19/api/sum().js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
         <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     
 

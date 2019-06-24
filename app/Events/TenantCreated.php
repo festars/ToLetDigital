@@ -5,6 +5,7 @@ namespace App\Events;
 use App\Room;
 use App\Agent;
 use App\Tenant;
+use App\Traits\SMS;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -16,7 +17,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class TenantCreated
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, InteractsWithSockets, SerializesModels,SMS;
 
     public $tenant;
 
@@ -38,5 +39,9 @@ class TenantCreated
         $this->agent = $agent;
         $this->room = $room;
         $this->password = $pass;
+        
+        $this->sendsms($tenant->phone,"Welcome to tolet agency");
+        
+        
     }
 }

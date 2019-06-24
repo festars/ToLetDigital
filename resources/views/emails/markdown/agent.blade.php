@@ -9,16 +9,22 @@ In order to login kindly follow this
 Url
 @endcomponent
 
+or By Typing  (www.eagent.toletdigital.com ) On Your Browser
+
 Your login credentials are as follows.
 
-    Email/Username : {{ $agent->email }}
+    Email/Username : <b>{{ $agent->email }}</b>
 
-    Password:{{$password}}
+    Password: <b>{{$password}}</b>
 
 
-Kindly change the credentials once you are logged in on the settings menu.
+Kindly change Your Log In Credentials once you Log in Your Agent's Portal on the Settings Menu.
+
+We are happy to have you as our esteemed client.
 
 
 Thanks,<br>
 {{ config('app.name') }}
+
+<a href="mailto:support@toletdigital.com">Support Email</a>
 @endcomponent

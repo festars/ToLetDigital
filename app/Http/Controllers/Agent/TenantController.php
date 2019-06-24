@@ -68,7 +68,7 @@ class TenantController extends Controller
         request()->validate([
             'title' => 'required|max:25',
             'name' => 'required|max:255',
-            'idnumber' => 'required|numeric',
+            'idnumber' => 'required|numeric|unique:tenants,idnumber',
             'email' => 'required|email|unique:tenants,email|max:255',
             'aemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',
@@ -93,8 +93,9 @@ class TenantController extends Controller
 
         
 
-        $room = Room::findOrFail(request('room'));
-
+        $room = Room::findOrFail(request('unit'));
+        
+    
         $room->rentals()->create([
             'tenant_id' => $tenant->id,
             'agent_id' => auth()->user()->id

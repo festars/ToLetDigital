@@ -136,7 +136,7 @@ Route::group(['prefix' => 'demo', 'namespace' => 'Demo'], function () {
     });
 });
 
-
+Route::get("sendsms","SMSController@sendsms");
 Route::get('profiles/notifications', 'UserNotificationsController@index')->name('user-notifications');
 Route::delete('profiles/notifications/{notification}', 'UserNotificationsController@destroy')->name('user-notification.destroy');
 

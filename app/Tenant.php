@@ -49,7 +49,7 @@ class Tenant extends Authenticatable
     
     public function tasks()
     {
-        return $this->hasMany(Task::class,'tenant_id');
+        return $this->morphMany(Task::class, 'addressable');
     }
     
      public function notices()

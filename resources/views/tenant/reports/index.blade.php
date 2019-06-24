@@ -31,8 +31,43 @@
             
             </div>
         </div>
-        
+        <div class="col-xl-12">
+        <div class="card" id="container" style="width:100%; height:400px;"></div>
+        </div>
       </div>
 
 
+@endsection
+@section('scripts')
+<script type="text/javascript" >
+  document.addEventListener('DOMContentLoaded', function () {
+    var tenant={!! json_encode($tenant->toArray(), JSON_HEX_TAG) !!};
+    $.each(tenant, function( k, v ) {
+      if(!k.endsWith("_count")){
+        delete tenant[k];
+      }
+
+});
+    var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'My Stats'
+        },
+        xAxis: {
+            categories: ['Tasks', 'Complains', 'Notices']
+        },
+        yAxis: {
+            title: {
+                text: 'No.'
+            }
+        },
+        series: [{
+            name: '{{ (Auth::user()->name) }}',
+            data:[tenant.tasks_count,tenant.complains_count,tenant.notices_count] 
+        }]
+    });
+});
+</script>
 @endsection
