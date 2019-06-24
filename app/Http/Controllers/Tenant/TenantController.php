@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Hash;
+use App\Traits\Mail;
 use Session;
 
 class TenantController extends Controller
 {
+    use Mail;
+    
     public function __construct()
     {
+        
         $this->middleware('auth:tenant', ['except' => ['showLogin','login']]);
     }
         
@@ -73,5 +77,10 @@ class TenantController extends Controller
         }
         Session::flash("msg-success","Password changed successfully");
         return redirect("/tenant/profile"); 
+    }
+    
+    public function test(){
+        
+        $this->sendMassMail();
     }
 }

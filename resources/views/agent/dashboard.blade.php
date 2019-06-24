@@ -14,158 +14,94 @@
 @section("top-content")
 
 <div class="row">
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Properties</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->total_listings}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
-                        <i class="far fa-building"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
+  <div class="col-xl-auto col-lg-6">
+    <div class="card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">Properties</h5>
+            <span class="h2 font-weight-bold mb-0">{{$data->total_listings}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
+              <i class="far fa-building"></i>
             </div>
+          </div>
+        </div>
+        <p class="mt-3 mb-0 text-muted text-sm">
+          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+          <span class="text-nowrap">Since last month</span>
+        </p>
+      </div>
+    </div>
+  </div>
 
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Units</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->total_units}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                        <i class="fas fa-puzzle-piece"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
+  <div class="col-xl-auto col-lg-6">
+    <div class="card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">Units</h5>
+            <span class="h2 font-weight-bold mb-0">{{$data->total_units}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+              <i class="fas fa-puzzle-piece"></i>
             </div>
+          </div>
+        </div>
+        <p class="mt-3 mb-0 text-muted text-sm">
+          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+          <span class="text-nowrap">Since last month</span>
+        </p>
+      </div>
+    </div>
+  </div>
 
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Tenants</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->total_tenants}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-default text-white rounded-circle shadow">
-                        <i class="fas fa-user-friends"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
+  <div class="col-xl-auto col-lg-6">
+    <div class="card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">Tenants</h5>
+            <span class="h2 font-weight-bold mb-0">{{$data->total_tenants}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-default text-white rounded-circle shadow">
+              <i class="fas fa-user-friends"></i>
             </div>
+          </div>
+        </div>
+        <p class="mt-3 mb-0 text-muted text-sm">
+          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+          <span class="text-nowrap">Since last month</span>
+        </p>
+      </div>
+    </div>
+  </div>
 
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Complains</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->complains_count}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                        <i class="fas fa-exclamation"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
+  <div class="col-xl-auto col-lg-6">
+    <div class="card card-stats mb-4 mb-xl-0">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5 class="card-title text-uppercase text-muted mb-0">Complains</h5>
+            <span class="h2 font-weight-bold mb-0">{{$data->complains_count}}</span>
+          </div>
+          <div class="col-auto">
+            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+              <i class="fas fa-exclamation"></i>
             </div>
-
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Unpaid Invoices</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->unpaid_invoices}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                        <i class="fas fa-file-invoice"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last month</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Paid Invoices</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->paid_invoices}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-success text-white rounded-circle shadow">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
-                    <span class="text-nowrap">Since last week</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-              <div class="card card-stats mb-4 mb-xl-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Rent Expected</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$data->rent_total}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                        <i class="fas fa-hand-holding-usd"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
-                    <span class="text-nowrap">Since yesterday</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
+          </div>
+        </div>
+        <p class="mt-3 mb-0 text-muted text-sm">
+          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+          <span class="text-nowrap">Since last month</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-auto col-lg-6">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
@@ -186,7 +122,73 @@
                 </div>
               </div>
             </div>
-          </div>
+
+  <div class="col-xl-auto col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Unpaid Invoices</h5>
+                      <span class="h2 font-weight-bold mb-0">{{$data->unpaid_invoices}}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="fas fa-file-invoice"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-auto col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Paid Invoices</h5>
+                      <span class="h2 font-weight-bold mb-0">{{$data->paid_invoices}}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last week</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="col-xl-auto col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Rent Expected</h5>
+                      <span class="h2 font-weight-bold mb-0">{{$data->rent_total}}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <i class="fas fa-hand-holding-usd"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                    <span class="text-nowrap">Since yesterday</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+</div>
 
 @endsection
 

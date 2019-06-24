@@ -1,71 +1,150 @@
-@extends('layouts.main')
-@section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center my-4 bg-white py-2 px-4 rounded shandow-sm">
-          <div class="px-2">
-            <p>
-              <h5 class="uppercase text-sm text-tolet-blue">Uit Name</h5>
-              <h3 class="uppercase mt-2 text-black text-lg"> {{ $room->name }}</h3>
-            </p>
-          </div>
-          <div class="px-2">
-             <p>
-              <h5 class="uppercase text-sm text-tolet-blue">Property</h5>
-              <h3 class="uppercase mt-2 text-black text-lg">{{ $room->listing->name }}</h3>
-            </p>
-          </div>
-          <div>
-            <p>
-              <h5 class="uppercase text-sm text-tolet-blue">Owner</h5>
-              <h3 class="uppercase mt-2 text-black text-lg">{{ $room->listing->owner->name }}</h3>
-            </p>
-           </div>
-        </div>
-        <div class="flex justify-between items-center my-4 ">
-            <div class="w-full">
-              <div class="flex items-start">
-                <div class="left-table w-1/2 mx-4 p-4">
-                  <div class="flex justify-between items-center w-full  my-2 ">
-                    <div><p class="uppercase font-semibold text-lg text-blue-aqua underline">Tenants Details</p></div>
-                    <div>
-                        <div class="flex items-center">
-                          <assign-tenant room="{{ $room->id }}"></assign-tenant>
-                          <new-tenant room="{{ $room->id }}"></new-tenant>
-                        </div>
+@extends('layouts.main2')
+
+@section("page-title", "Room Details")
+
+
+@section("top-content")
+
+<div class="row">
+            <div class="col-md-3">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Unit Name</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ $room->name }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
+                        <i class="far fa-building"></i>
+                      </div>
                     </div>
                   </div>
-                  @include('agent.rooms.tenants')
-                </div>
-                <div class="right-table w-1/2 mr-6 p-3">
-                   <div class="flex justify-between items-center w-full my-2">
-                    <div>
-                      <p class="uppercase font-semibold text-lg text-blue-dark underline">Escrow Accounts</p>
-                    </div>
-                    <div>
-                        <div class="flex items-center">
-                          <new-account  room="{{ $room->id }}" :properties="{{$properties}}"></new-account>
-                        </div>
-                    </div>
-                  </div>
-                  @include('agent.rooms.accounts')
-                </div>
-              </div>
-              <div class="flex items-center">
-                <div class="left-table w-full my-4 mx-4 p-4">
-                  <div class="flex justify-between items-center w-full my-2">
-                    <div><p class="uppercase font-semibold text-lg text-blue-dark underline">Payments Details</p></div>
-                  Payments
-                  </div>
-                  @include('agent.rooms.payments')
                 </div>
               </div>
             </div>
-         </div>
-    </div>
+            <div class="col-md-5">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Property</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ $room->listing->name }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
+                        <i class="far fa-building"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Owner</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ $room->listing->owner->name }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
+                        <i class="far fa-building"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+@endsection
+
+
+@section('content')
+
+<div class="row">
+        <div class="col-xl-6">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Tenants Details</h3>
+                </div>
+                <div class="col text-right">
+                  <assign-tenant class="d-inline-block" room="{{ $room->id }}"></assign-tenant>
+                  <new-tenant class="d-inline-block" room="{{ $room->id }}"></new-tenant>
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                @include('agent.rooms.tenants')
+                </div>
+                
+                </div>
+                
+                </div>
+                </div>
+        <div class="col-xl-6">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Escrow Accounts</h3>
+                </div>
+                <div class="col text-right">
+                  <new-account  room="{{ $room->id }}" :properties="{{$properties}}"></new-account>
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                @include('agent.rooms.accounts')
+                </div>
+                
+                </div>
+                
+                </div>
+                </div>
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Payments</h3>
+                </div>
+                <div class="col text-right">
+                  <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                @include('agent.rooms.payments')
+                </div>
+                
+                </div>
+                
+                </div>
+                </div>
+</div>
+
 @endsection
 @section('scripts')
 <script>
-  nicetable('#tenants');
+nicetable('#tenants');
+  /*nicetable('#tenants',{
+    "order": [[ 4, "desc" ]]
+  });*/
   nicetable('#finance', {
       drawCallback: function () {
       var api = this.api();

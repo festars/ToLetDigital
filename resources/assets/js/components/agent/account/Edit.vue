@@ -1,55 +1,65 @@
 <template>
   <div class="w-full">
     <button class="no-underline bttn bg-tolet-blue hover:bg-blue-ddark" @click="show">Edit</button>
-      <modal :name="name" height="auto" width="900" :draggable=true>
-       <form class="bg-white rounded px-8 pt-6 pb-8 mb-4 mx-4" @submit.prevent="submit">
-        <p class="flex justify-center items-center"><h3 class="uppercase">Edit Account</h3></p>
-        <div class="mb-4 flex justify-between">
-          <div class="flex items-center w-1/2 mx-2">
-            <label class="label w-1/4" for="username">
-              Name
-            </label>
-            <input class="outline-0 bg-grey text-black font-bold py-2 text-center flex-1" v-model="form.name" />
+      
+        
+        
+        <modal :name="name" height="auto" width="450" :draggable=true :scrollable=true>
+        
+        <div class="container pb-0">
+          <h4>Update Account</h4>
+        </div>
+        
+       <form class="w-full container mx-auto" @submit.prevent="submit">
+         
+         <div class="form-group">
+              <label for="">Name</label>
+            <input class="form-control" v-model="form.name" />
             <p class="text-red text-xs italic my-2" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
           </div>
-          <div class="flex items-center mx-2 w-1/2">
-            <label class="label w-1/4">
-             Frequency
-            </label>
-            <select class="outline-0 bg-grey text-blue-dark py-2 text-center flex-1" v-model="form.period">
-              <option class="text-center" v-for="(period,key) in periods" :value="key" :key="key" selected="period.id==account.period_id">{{ period }}</option>
+         
+         <div class="form-row">
+            <div class="col-auto">
+                <div class="form-group">
+                  <label for="">Cur</label>
+                  <select required class="form-control" v-model="form.currency">
+                    <option v-for="currency in currencies" :value="currency" :key="currency" selected="currency">{{ currency }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('currency')" v-text="form.errors.get('currency')"></p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Amount</label>
+                  <input type="text" required class="form-control" v-model="form.amount">
+                <p class="text-red text-xs italic my-2" v-if="form.errors.has('amount')" v-text="form.errors.get('amount')"></p>
+              </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                  <label for="">Frequency</label>
+                  <select required class="form-control" v-model="form.period">
+              <option v-for="(period,key) in periods" :value="key" :key="key">{{ period }}</option>
+                  </select>
+                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('period')" v-text="form.errors.get('period')"></p>
+                </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+              <label for="">Property</label>
+<select class="form-control" v-model="form.property">
+              <option v-for="(property,index) in listing" :value="index" :key="index">{{ property }}</option>
             </select>
-            <p class="text-red text-xs italic my-2" v-if="form.errors.has('period')" v-text="form.errors.get('period')"></p>
+            <p class="text-red text-xs italic my-2" v-if="form.errors.has('property')" v-text="form.errors.get('property')"></p>
+          
           </div>
-        </div>
-
-        <div class="mb-4 flex justify-between items-center">
-          <div class="flex items-center mx-2 w-1/2">
-            <label class="label w-1/4">
-             Currency
-            </label>
-            <select class="outline-0 bg-grey text-blue-dark py-2 text-center flex-1" v-model="form.currency">
-              <option class="text-center" v-for="currency in currencies" :value="currency" :key="currency">{{ currency }}</option>
-            </select>
-            <p class="text-red text-xs italic my-2" v-if="form.errors.has('currency')" v-text="form.errors.get('currency')"></p>
-          </div>
-          <div class="flex items-center mx-2 w-1/2">
-            <label class="label w-1/4">
-             Amount
-            </label>
-            <input class="outline-0 bg-grey text-black font-bold py-2 text-center flex-1" v-model="form.amount" />
-
-            <p class="text-red text-xs italic my-2" v-if="form.errors.has('amount')" v-text="form.errors.get('amount')"></p>
-          </div>
-        </div>
-          <div class="flex items-center justify-between">
-            <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit">
-             Create
-            </button>
-
-          </div>
+         
+         <button type="submit" class="btn btn-default">Update</button>
+         
         </form>
         </modal>
+        
   </div>
 
 </template>

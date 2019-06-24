@@ -35,6 +35,7 @@ Route::group(['prefix' => 'tenant', 'namespace' => 'Tenant'], function () {
     Route::get('login', 'TenantController@showLogin')->name('tenant.login');
     Route::post('login', 'TenantController@login');
     Route::group(['middleware' => 'auth:tenant'], function () {
+        Route::get('send', 'TenantController@test');
         Route::get('/password/reset','TenantController@resetPassword');
         Route::post('/password/reset','TenantController@password')->name("tenant.reset");
         Route::get('dashboard', 'TenantController@index')->name('tenant.dashboard');
@@ -110,6 +111,7 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
         Route::post('profile', 'SettingsController@uploadpic')->name("agent.upload");
         Route::get('expense/approve/{id}', 'ExpenseController@approve');
         Route::get('expense/decline/{id}', 'ExpenseController@decline');
+        
     });
 });
 
