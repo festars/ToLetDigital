@@ -13,7 +13,9 @@
        <form class="w-full container mx-auto" enctype="multipart/form-data" @submit.prevent="submit">
             
             
-            <div class="form-group">
+            <div class="form-row">
+              <div class="col">
+                            <div class="form-group">
               <label for="">Apartment</label>
                 <select required class="form-control"
                    v-model="form.property">
@@ -21,14 +23,21 @@
                   </select>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('property')" v-text="form.errors.get('property')"></p>
               </div>
-            
-            <div class="form-group">
+
+              </div>
+              <div class="col">
+                            <div class="form-group">
               <label for="">Address to</label>
                 <select required class="form-control" v-model="form.ptype">
                     <option v-for="ptype in ptypes" :value="ptype" :key="ptype" selected="ptype">{{ ptype }}</option>
                   </select>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
                 </div>
+
+              </div>
+            </div>
+            
+            
                 
             
             <div class="form-group">

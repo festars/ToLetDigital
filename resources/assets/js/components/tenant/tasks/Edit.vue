@@ -145,6 +145,7 @@ import moment from "moment"
         load(){
           
            Object.assign(this.form, {
+             
                   property:this.task.property,
                   unitnumber:this.task.unitnumber,
                   tasktype:this.task.tasktype,
@@ -156,7 +157,7 @@ import moment from "moment"
           });
         },
         submit(){
-          this.form.put(`/tenant/tasks/${this.task.id}`,{ params: this.task }).
+          this.form.put(`/tenant/tasks/${this.task.id}`,{ params: this.task },).
                 then(response => {
                     console.log(response);
                   this.$modal.hide(this.name);

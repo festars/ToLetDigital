@@ -42,7 +42,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->file('file'));
+        dd($request->file('file'));
         
         $data = request()->validate([
             'property'=>'required|exists:rentals,id',

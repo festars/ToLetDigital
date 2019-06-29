@@ -11,7 +11,7 @@
           <h3 class="uppercase leading-normal tracking-wide text-xl text-white py-4">{{ __('Reset Password') }}</h3>
         </div>
         <div class="w-full flex justify-center items-center bg-white">
-          <form method="POST" action="{{ route('password.email') }}" class="bg-white rounded px-2 pt-2 pb-2 mb-4 w-5/6">
+          <form method="POST" action="{{ url(Request::route()->getPrefix().'/password/reset') }}" class="bg-white rounded px-2 pt-2 pb-2 mb-4 w-5/6">
               @csrf
             @if (session('status'))
                 <div class="alert alert-success">

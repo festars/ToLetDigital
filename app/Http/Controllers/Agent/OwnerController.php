@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Mail;
 use App\Mail\OwnerWelcomeMail;
+use Auth;
 
 class OwnerController extends Controller
 {
@@ -31,9 +32,9 @@ class OwnerController extends Controller
         // foreach($listings as $listing){
         //     array_push($owners,$listing->owner);
         // }
-        
+      
 
-        $owners = Owner::all();
+        $owners = auth()->user()->owners;
 
         return view('agent.owners.index', compact('owners'));
     }
@@ -73,9 +74,12 @@ class OwnerController extends Controller
             'alternative_phone' => request('altphone'),
             'password' => Hash::make('secret'),
             'country'  => request('country'),
+            'agent_id'  => auth()->user()->id,
         ]);
         
         $owner = Owner::where("email",request('email'))->first();
+        
+        dd($owner);
         
         //send email with user credentails
         Mail::to(request('email'))->send(new OwnerWelcomeMail ($owner));

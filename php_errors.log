@@ -56,3 +56,7 @@ Stack trace:
 [08-May-2019 08:29:39 UTC] PHP Fatal error:  Cannot use Illuminate\Notifications\Notifiable as Notifiable because the name is already in use in /home/ubuntu/workspace/tolet/app/Vendor.php on line 7
 [10-Jun-2019 12:15:54 UTC] PHP Fatal error:  Cannot redeclare App\Mail\AgentWelcomeMail::__construct() in /home/ubuntu/workspace/tolet/app/Mail/AgentWelcomeMail.php on line 31
 [10-Jun-2019 12:17:52 UTC] PHP Fatal error:  Cannot redeclare App\Mail\AgentWelcomeMail::__construct() in /home/ubuntu/workspace/tolet/app/Mail/AgentWelcomeMail.php on line 31
+[28-Jun-2019 12:29:15 UTC] PHP Fatal error:  Cannot redeclare App\Agent::tasks() in /home/ubuntu/workspace/tolet/app/Agent.php on line 87
+[28-Jun-2019 12:29:43 UTC] PHP Fatal error:  Cannot redeclare App\Agent::tasks() in /home/ubuntu/workspace/tolet/app/Agent.php on line 87
+[28-Jun-2019 12:29:45 UTC] PHP Fatal error:  Cannot redeclare App\Agent::tasks() in /home/ubuntu/workspace/tolet/app/Agent.php on line 87
+[28-Jun-2019 12:30:09 UTC] PHP Fatal error:  Cannot redeclare App\Agent::tasks() in /home/ubuntu/workspace/tolet/app/Agent.php on line 87

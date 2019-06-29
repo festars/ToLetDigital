@@ -20,10 +20,10 @@
     <div class="form-group col-md-6">
       <label for="">Address to:</label>
       <select required class="form-control"
-                   v-model="form.property">
+                   v-model="form.assignedto_id">
                     <option v-for="rental in rentals" :value="rental.rentable.id" :key="rental.rentable.id" selected="rental.rentable.id">{{ rental.rentable.name }}</option>
                   </select>
-      <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
+      <p class="text-red text-xs italic my-2" v-if="form.errors.has('assignedto_id')" v-text="form.errors.get('assignedto_id')"></p>
 
     </div>
   </div>
@@ -32,7 +32,7 @@
   <div class="form-group">
     <label for="">Task Type:</label>
     <select required class="form-control"
-                   v-model="form.property">
+                   v-model="form.tasktype">
                     <option v-for="(type, key) in types" :value="type" :key="key">{{ type }}</option>
                   </select>
      <p class="text-red text-xs italic my-2" v-if="form.errors.has('tasktype')" v-text="form.errors.get('tasktype')"></p>
@@ -140,7 +140,7 @@
            let formData = new FormData();
            
             formData.append('property', this.form.property);
-           // formData.append('unitnumber', this.form.unitnumber);
+           formData.append('unitnumber', this.form.unitnumber);
             formData.append('tasktype', this.form.tasktype);
             formData.append('duedate', this.form.duedate);
             formData.append('priortylevel', this.form.priortylevel);
@@ -155,8 +155,8 @@
             headers: { 'content-type': 'multipart/form-data' }
         }).then(response => {
                   this.$modal.hide('open-task');
-                  flash(response.message);
-                 location.reload();
+                //   flash(response.message);
+                // location.reload();
                 }).catch(errors => {
 
                 })

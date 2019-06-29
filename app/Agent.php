@@ -84,5 +84,10 @@ class Agent extends Authenticatable
         return $this->hasMany(Expense::class, 'agent_id');
     }
     
+      public function owners()
+    {
+        return $this->hasMany(Owner::class, 'agent_id');
+    }
+    
     
 }

@@ -31,9 +31,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 });
 
 //Tenant Dashboard.
-Route::group(['prefix' => 'tenant', 'namespace' => 'Tenant'], function () {
+Route::group(['prefix' => 'tenant'], function () {
+   
+    
+    Route::get('password/forgot', 'Auth\ForgotPasswordController@showLinkRequestForm');
+    Route::get('password/forgot/{token}', 'Auth\ResetPasswordController@showResetForm');
+    Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+    
+    Route::group(['namespace' => 'Tenant'], function () {
     Route::get('login', 'TenantController@showLogin')->name('tenant.login');
     Route::post('login', 'TenantController@login');
+    
+
     Route::group(['middleware' => 'auth:tenant'], function () {
         Route::get('send', 'TenantController@test');
         Route::get('/password/reset','TenantController@resetPassword');
@@ -51,6 +60,7 @@ Route::group(['prefix' => 'tenant', 'namespace' => 'Tenant'], function () {
         Route::post('profile', 'SettingsController@uploadpic')->name("tenant.upload");
     });
 });
+  });
 
 //Property Owners Dashboard.
 Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {

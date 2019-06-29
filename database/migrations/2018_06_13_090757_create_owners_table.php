@@ -29,6 +29,9 @@ class CreateOwnersTable extends Migration
             $table->integer('suspended')->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->string('session_id');
+            $table->string('addressable_type');
+            $table->string('addressable_id');
+            $table->string('agent_id');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

@@ -31,5 +31,18 @@
         </td>
       </tr>
     @endforeach
+    
+    <tfoot>
+      <tr class="bg-primary">
+      <th scope="col">Invoice Date</th>
+       <th scope="col">Period</th>
+      <th scope="col">Invoice Number</th>
+       <th scope="col">Invoice To</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Balance</th>
+      <th scope="col">Action</th>
+    </tr>
+    </tfoot>
   </tbody>
 </table>

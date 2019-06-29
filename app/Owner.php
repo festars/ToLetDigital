@@ -24,7 +24,7 @@ class Owner extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','alternative_email', 'password','phone','alternative_phone','isApproved','approved_at','country','total_listings','total_units','total_tenants'
+        'name', 'email','alternative_email','agent_id', 'password','phone','alternative_phone','isApproved','approved_at','country','total_listings','total_units','total_tenants'
     ];
 
     /**
@@ -35,6 +35,11 @@ class Owner extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 
     public function listings()
     {

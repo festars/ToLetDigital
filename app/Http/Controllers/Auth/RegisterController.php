@@ -9,11 +9,13 @@ use App\Tenant;
 use App\User;
 use Carbon\Carbon;
 use Mail;
+use Illuminate\Support\Facades\Storage;
 use App\Mail\AgentWelcomeMail;
 use App\Mail\Registration;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -53,13 +55,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $request)
     {
-        return Validator::make($data, [
+        
+        
+        return Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:agents',
             'password' => 'required|string|min:6|confirmed',
-            'phone' => 'required'
+            'phone' => 'required',
+            'certificate'  => 'required_if:company,on',
+            'pin'  => 'required_if:company,on'
         ]);
     }
 
@@ -69,27 +75,49 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
        
 
  try {
         //     $user = User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'phone' => $data['phone'],
-        //     'password' => Hash::make($data['password']),
+        //     'name' =>  $request->name,
+        //     'email' =>  $request->email,
+        //     'phone' =>  $request->phone,
+        //     'password' => Hash::make( $request->password),
         // ]);
-
+        
+       
+        $profilepic=null;
+        
+        
+        
+        if($request->company == 'true'){
+            
+            dd($path,$request);
+           
+             $path = Storage::putFileAs(
+                'agentppic', $request->file('pin'), $request->user()->id.".".$request->file('pin')->extension()
+            );
+            
+            
+            
+            $profilepic =$request->root()."/storage/".$path;
+                        
+         }
+        
+     
+dd($profilepic);
 
         $agent = Agent::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make( $request->password),
+            'profilepic' => $profilepic
         ]);
         
-         Mail::to($data['email'])->send(new Registration ($agent));
+         Mail::to( $request->email)->send(new Registration ($agent));
         
         
         } catch (\Exception $exception) {
