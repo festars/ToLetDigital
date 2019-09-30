@@ -25,7 +25,7 @@
               <email-invoice invoice="{{ $invoice->id }}" email="{{$invoice->tenant->email}}"></email-invoice>
           </span>
           <span class="flex justify-center items-center">
-              <a target="_blank" href="{{ $invoice->invoice_url }}" class="no-underline px-4 py-2 bg-teal text-white rounded">view</a>
+              <a target="_blank" href="{{asset('storage/invoices/'.$invoice->tenant_id.'/'.$invoice->invoice_id.'.pdf')}}" class="no-underline px-4 py-2 bg-teal text-white rounded">view</a>
           </span>
           @if($invoice->isPaid)          
           @else

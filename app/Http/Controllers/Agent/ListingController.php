@@ -28,8 +28,8 @@ class ListingController extends Controller
         $owner_ids     = auth()->user()->listings->pluck('owner_id');
         $pmodes        = PaymentOptions::all();
         $payment_types = PaymentTypes::all();
-        //$owners      = Owner::find($owner_ids);
-        $owners        = Owner::all();
+        $owners      = Owner::where("agent_id",auth()->user()->id)->get();
+       // $owners        = Owner::all();
         $ptypes        = PropertyType::get();
         
       // dd($listings);

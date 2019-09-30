@@ -35,6 +35,11 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ route('invoice.index',['type' => 'unpaid']) }}">
+              <i class="ni ni-circle-08 text-pink"></i> Unpaid Invoices
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('agent.payment') }}">
               <i class="ni ni-circle-08 text-pink"></i> Payments
             </a>
@@ -64,7 +69,7 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/agent/sendsms">
               <i class="ni ni-circle-08 text-pink"></i> Bulk Sms & Email
             </a>
           </li>

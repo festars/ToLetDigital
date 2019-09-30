@@ -55,75 +55,46 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(Request $request)
+    protected function validator(array $data)
     {
-        
-        
-        return Validator::make($request->all(), [
+        return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:agents',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'phone' => 'required',
-            'certificate'  => 'required_if:company,on',
-            'pin'  => 'required_if:company,on'
+            'phone' => 'required'
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(Request $request)
+    protected function create(array $data)
     {
-       
-
- try {
-        //     $user = User::create([
-        //     'name' =>  $request->name,
-        //     'email' =>  $request->email,
-        //     'phone' =>  $request->phone,
-        //     'password' => Hash::make( $request->password),
-        // ]);
-        
-       
-        $profilepic=null;
-        
-        
-        
-        if($request->company == 'true'){
-            
-            dd($path,$request);
-           
-             $path = Storage::putFileAs(
-                'agentppic', $request->file('pin'), $request->user()->id.".".$request->file('pin')->extension()
-            );
-            
-            
-            
-            $profilepic =$request->root()."/storage/".$path;
-                        
-         }
-        
-     
-dd($profilepic);
-
-        $agent = Agent::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'password' => Hash::make( $request->password),
-            'profilepic' => $profilepic
+       $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+        ]);
+        Agent::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
         ]);
         
-         Mail::to( $request->email)->send(new Registration ($agent));
+        $agent=Agent::where("email",$data["email"])->first();
+
+        
+         //Mail::to( $data['email'])->send(new Registration ($agent));
         
         
-        } catch (\Exception $exception) {
-            logger()->error($exception);
-            return redirect()->back()->with('message', 'Unable to create new user.');
-        }
+        // } catch (\Exception $exception) {
+        //     logger()->error($exception);
+        //     return redirect()->back()->with('message', 'Unable to create new user.');
+        // }
        
         return $user;
 

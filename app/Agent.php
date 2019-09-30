@@ -88,6 +88,8 @@ class Agent extends Authenticatable
     {
         return $this->hasMany(Owner::class, 'agent_id');
     }
+
+     
     
     
 }

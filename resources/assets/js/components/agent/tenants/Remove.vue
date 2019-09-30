@@ -35,7 +35,7 @@
                             data: {'unit':this.unit}
                                   }).then(response => {
                                   flash(response.message);
-                                  location.reload();
+                                  //location.reload();
                                 })
                                 .catch(errors => {
 

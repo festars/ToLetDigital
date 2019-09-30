@@ -15,6 +15,8 @@
                       <option value="Mr">Mr</option>
                       <option value="Mrs">Mrs</option>
                       <option value="Ms" >Ms</option>
+                      <option value="Company" >Company</option>
+                      <option value="Other" >Other</option>
                   </select>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('title')" v-text="form.errors.get('title')"></p>
                 </div>
@@ -28,7 +30,7 @@
             </div>
             <div class="col">
                 <div class="form-group">
-                  <label for="">ID Number</label>
+                  <label for="">ID  / Tax Number</label>
                   <input class="form-control" v-model="form.idnumber" />
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('idnumber')" v-text="form.errors.get('idnumber')"></p>
                 </div>
@@ -75,7 +77,7 @@
          
          
          <div class="form-group">
-            <label for="">Apartment</label>
+            <label for="">Property</label>
             <select required class="form-control"
                    v-model="form.property" @change="listofrooms">
                     <option v-for="rental in rentals" :value="rental.id" :key="rental.id" selected="rental.id">{{ rental.name }}</option>

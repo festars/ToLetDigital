@@ -32,6 +32,12 @@
               <i class="ni ni-planet text-blue"></i> Periods
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('listing.index') }}">
+              <i class="ni ni-planet text-blue"></i> Properties
+            </a>
+          </li>
         
         </ul>
 

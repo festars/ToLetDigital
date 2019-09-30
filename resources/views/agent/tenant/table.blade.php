@@ -8,5 +8,6 @@
     <td class="flex items-center justify-start">
       <edit-tenant :tenant="{{$tenant}}"></edit-tenant>
       <a href="{{ route('tenant.show',['id' =>$tenant->id ])}}" class="btn btn-success">View</a>
+      <delete-item url="/agent/tenant/{{ $tenant->id}}" ></delete-item>
     </td>
   </tr>

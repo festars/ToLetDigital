@@ -62,6 +62,7 @@ class GeneratePdfInvoice implements ShouldQueue
                 'phone'     => $customer->phone,
                 'country'   => $customer->country or 'KENYA',
             ])
+            //->SetWatermarkText("WATERMARK")
             ->footnote("Tolet Digital agency   ".$this->invoice->hash)
             ->save("public/invoices/{$this->invoice->agent->id}/{$this->invoice->invoice_id}.pdf");
 

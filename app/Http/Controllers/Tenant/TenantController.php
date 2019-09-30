@@ -17,13 +17,14 @@ class TenantController extends Controller
     public function __construct()
     {
         
-        $this->middleware('auth:tenant', ['except' => ['showLogin','login']]);
+        $this->middleware('auth:tenant', ['except' => ['showLogin','login','forgotPassword','resetforgotPassword','forgotPass','validatePass']]);
     }
         
 
     public function index()
     {
         $rentals = auth()->user()->rentals;
+        dd(auth()->user()->rentals->first()->rentable->listing->name);
         return view('tenant.dashboard', compact('rentals'));
     }
 
@@ -82,5 +83,38 @@ class TenantController extends Controller
     public function test(){
         
         $this->sendMassMail();
+    }
+    public function forgotPass(Request $request){
+
+        $this->reset($request);
+        Session::flash('msg-success','Success! Check email to finish resetting your password');
+
+        return redirect("/agent/login");
+
+    }
+
+    public function forgotPassword(){
+
+        return view("auth.passwords.forgot");
+
+    }
+
+    public function resetforgotPassword(){
+      //$email=;
+      $email=urldecode(decrypt($_GET["email"]));
+     return view('auth.reset',compact('email'));
+    }
+
+    public function validatePass(Request $request){
+        $prefix=str_replace("/", "", $request->route()->getPrefix());
+        $auth = $this->validatePassword($request);
+        if($auth){
+          Session::flash('msg-success','Password Reset successful');
+          return redirect($prefix."/login");
+      }
+      else {
+         Session::flash('msg-error','Something went wrong');
+         return redirect($prefix."/login");
+      }
     }
 }

@@ -14,7 +14,7 @@
                   <h3 class="mb-0">Properties</h3>
                 </div>
                 <div class="col text-right">
-                    <new-listing :owners="{{ json_encode($owners) }}" :ptypes="{{ json_encode($ptypes) }}" :pmodes="{{ json_encode($pmodes) }}"></new-listing>
+                    <new-listing :owners="{{ json_encode($owners) }}" :ptypes="{{ json_encode($ptypes) }}" :pmodes="{{ json_encode($pmodes) }}" :payment_types="{{ json_encode($payment_types) }}"></new-listing>
                   <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
                 </div>
               </div>
@@ -46,7 +46,7 @@
                       <td>{{ $listing->total_units }}</td>
                       @if($listing->status === null)
                       <td><span class = "bg-orange rounded-full uppercase p-2 text-white font-normal">Pending</span></td>
-                      @elseif($listing->status === 0)
+                      @elseif($listing->status === 1)
                       <td><span class = "bg-green rounded-full uppercase p-2 text-white font-normal">Approved</span></td>
                       @else
                       <td><span class = "bg-red rounded-full uppercase p-2 text-white font-normal">Suspended</span></td>
@@ -119,7 +119,14 @@
 
 @section('scripts')
 <script>
-  nicetable('#example1');
+ $('#example1').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
 </script>
 @endsection
 

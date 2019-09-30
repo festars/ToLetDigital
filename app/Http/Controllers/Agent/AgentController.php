@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\Hash;
 use App\Agent;
 use DB;
 use Session;
+use App\Traits\Mail;
 
 
 class AgentController extends Controller
 {
+    use Mail;
     public function __construct()
     {
-        $this->middleware('auth:agent', ['except' => ['showLogin','login','resetPassword']]);
+        $this->middleware('auth:agent', ['except' => ['showLogin','login','resetPassword','forgotPassword','resetforgotPassword','forgotPass','validatePass']]);
     }
 
     public function index()
@@ -73,5 +75,39 @@ class AgentController extends Controller
         }
         Session::flash("msg-success","Password changed successfully");
         return redirect("agent/profile"); 
+    }
+
+    public function forgotPass(Request $request){
+
+        $this->reset($request);
+        Session::flash('msg-success','Success! Check email to finish resetting your password');
+
+        return redirect("/agent/login");
+
+    }
+
+    public function forgotPassword(){
+
+        return view("auth.passwords.forgot");
+
+    }
+
+    public function resetforgotPassword(){
+      //$email=;
+      $email=urldecode(decrypt($_GET["email"]));
+     return view('auth.reset',compact('email'));
+    }
+
+    public function validatePass(Request $request){
+        $prefix=str_replace("/", "", $request->route()->getPrefix());
+        $auth = $this->validatePassword($request);
+        if($auth){
+          Session::flash('msg-success','Password Reset successful');
+          return redirect($prefix."/login");
+      }
+      else {
+         Session::flash('msg-error','Something went wrong');
+         return redirect($prefix."/login");
+      }
     }
 }

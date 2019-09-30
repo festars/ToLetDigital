@@ -46,14 +46,7 @@
             </div>
           </div>
           
-          <div class="form-group">
-              <label for="">Property</label>
-<select class="form-control" v-model="form.property">
-              <option v-for="(property,index) in listing" :value="index" :key="index">{{ property }}</option>
-            </select>
-            <p class="text-red text-xs italic my-2" v-if="form.errors.has('property')" v-text="form.errors.get('property')"></p>
-          
-          </div>
+       
          
          <button type="submit" class="btn btn-default">Update</button>
          

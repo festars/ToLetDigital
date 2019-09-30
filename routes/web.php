@@ -3,6 +3,10 @@
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('login', 'LoginController@show')->name('admin.login');
     Route::post('login', 'LoginController@login');
+    Route::get("/forgot/password","LoginController@forgotPassword");
+    Route::post("/forgot/password","LoginController@forgotPass");
+    Route::get("/reset/password/{token}","LoginController@resetforgotPassword");
+    Route::post("/forgot/reset","LoginController@validatePass");
     Route::group(['middleware' => 'auth:admin'], function () {
         Route::get('/password/reset','DashboardController@resetPassword');
         Route::post('/password/reset','DashboardController@password')->name("admin.reset");
@@ -12,6 +16,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::resource('unittypes', 'RoomTypeController');
         Route::resource('period', 'PeriodController');
         Route::get('agents', 'AgentController@index')->name("agent.index");
+        Route::get('listings', 'ListingController@index')->name("listing.index");
+
+        Route::get('listing/aprrove/{id}', 'ListingController@approve');
+        Route::get('listing/decline/{id}', 'ListingController@decline');
+        Route::get('listing/suspend/{id}', 'ListingController@suspend');
+        Route::get('listing/unsuspend/{id}', 'ListingController@unsuspend');
+
         Route::get('agent/aprrove/{id}', 'AgentController@approve');
         Route::get('agent/decline/{id}', 'AgentController@decline');
         Route::get('agent/suspend/{id}', 'AgentController@suspend');
@@ -41,7 +52,10 @@ Route::group(['prefix' => 'tenant'], function () {
     Route::group(['namespace' => 'Tenant'], function () {
     Route::get('login', 'TenantController@showLogin')->name('tenant.login');
     Route::post('login', 'TenantController@login');
-    
+    Route::get("/forgot/password","TenantController@forgotPassword");
+    Route::post("/forgot/password","TenantController@forgotPass");
+    Route::get("/reset/password/{token}","TenantController@resetforgotPassword");
+    Route::post("/forgot/reset","TenantController@validatePass");
 
     Route::group(['middleware' => 'auth:tenant'], function () {
         Route::get('send', 'TenantController@test');
@@ -66,6 +80,11 @@ Route::group(['prefix' => 'tenant'], function () {
 Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {
     Route::get('login', 'OwnerController@showLogin')->name('owner.login');
     Route::post('login', 'OwnerController@login');
+    Route::get("/forgot/password","OwnerController@forgotPassword");
+    Route::post("/forgot/password","OwnerController@forgotPass");
+    Route::get("/reset/password/{token}","OwnerController@resetforgotPassword");
+    Route::post("/forgot/reset","OwnerController@validatePass");
+
     Route::group(['middleware' => 'auth:owner'], function () {
         Route::get('/password/reset','OwnerController@resetPassword');
         Route::post('/password/reset','OwnerController@password')->name("owner.reset");
@@ -93,6 +112,10 @@ Route::group(['prefix' => 'owner', 'namespace' => 'Owner'], function () {
 Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
     Route::get('login', 'AgentController@showLogin')->name('agent.login');
     Route::post('login', 'AgentController@login');
+    Route::get("/forgot/password","AgentController@forgotPassword");
+    Route::post("/forgot/password","AgentController@forgotPass");
+    Route::get("/reset/password/{token}","AgentController@resetforgotPassword");
+    Route::post("/forgot/reset","AgentController@validatePass");
     
     Route::group(['middleware' => 'auth:agent'], function () {
         Route::get('/password/reset','AgentController@resetPassword')->name('password.request');
@@ -121,6 +144,10 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
         Route::post('profile', 'SettingsController@uploadpic')->name("agent.upload");
         Route::get('expense/approve/{id}', 'ExpenseController@approve');
         Route::get('expense/decline/{id}', 'ExpenseController@decline');
+        Route::get("sendsms","SMSController@index");
+        Route::post("sendsms","SMSController@sendsms");
+        Route::post("sendemail","SMSController@bulkEmail");
+        
         
     });
 });
@@ -129,6 +156,10 @@ Route::group(['prefix' => 'agent', 'namespace' => 'Agent'], function () {
 Route::group(['prefix' => 'vendor', 'namespace' => 'Vendor'], function () {
     Route::get('login', 'VendorController@showLogin')->name('vendor.login');
     Route::post('login', 'VendorController@login');
+    Route::get("/forgot/password","VendorController@forgotPassword");
+    Route::post("/forgot/password","VendorController@forgotPass");
+    Route::get("/reset/password/{token}","VendorController@resetforgotPassword");
+    Route::post("/forgot/reset","VendorController@validatePass");
     Route::group(['middleware' => 'auth:vendor'], function () {
         Route::get('/password/reset','VendorController@resetPassword');
         Route::post('/password/reset','VendorController@password')->name("vendor.reset");
@@ -148,7 +179,7 @@ Route::group(['prefix' => 'demo', 'namespace' => 'Demo'], function () {
     });
 });
 
-Route::get("sendsms","SMSController@sendsms");
+
 Route::get('profiles/notifications', 'UserNotificationsController@index')->name('user-notifications');
 Route::delete('profiles/notifications/{notification}', 'UserNotificationsController@destroy')->name('user-notification.destroy');
 

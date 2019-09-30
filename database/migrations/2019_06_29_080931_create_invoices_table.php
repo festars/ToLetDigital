@@ -36,7 +36,7 @@ class CreateInvoicesTable extends Migration {
 			$table->text('data')->nullable();
 			$table->softDeletes();
 			$table->timestamps();
-			$table->unique(['rental_id','month','year']);
+			//$table->unique(['rental_id','month','year']);
 		});
 	}
 

@@ -33,7 +33,9 @@
 
       methods: {
         submit(){
-          this.form.post("/agent/invoice/email/"+this.invoice).
+          this.form.post("/agent/invoice/email/"+this.invoice,{ headers: {
+        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+    }}).
                 then(({data}) => {
                    this.$modal.hide('email-invoice'+this.invoice);
                    flash(data.message);

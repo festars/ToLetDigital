@@ -13,11 +13,11 @@ or By Typing  (www.etenant.toletdigital.com ) On Your Browser
 
 Your login credentials are as follows.
 
-Email/Username : <b>{{ $tenant->email }}</b>
+Email/Username : {{ $tenant->email }}
 
 Password: <b>{{$password}}</b>
 
-You have received this email because your Property Manager / Agent ( Kalolwanga Engineering Services Ltd ) is using To-let Online Property Management Software to Manage ( MAGGI VILLA APARTMENTS ).
+You have received this email because your Property Manager / Agent ( {{$tenant->agent->name}} ) is using To-let Online Property Management Software to Manage ( {{$tenant->rentals->first()->rentable->listing->name}} ).
 
 Kindly change Your Log In Credentials once you Log in Your Tenant's Portal on the Settings Menu.
 

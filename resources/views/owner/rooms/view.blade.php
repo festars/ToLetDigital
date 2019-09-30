@@ -43,7 +43,7 @@
                     </div>
                     <div>
                         <div class="flex items-center">
-                          <new-account  room="{{ $room->id }}" :properties="{{$properties}}"></new-account>
+                          <new-account  room="{{ $room->id }}" :properties="{{$listing}}"></new-account>
                         </div>
                     </div>
                   </div>

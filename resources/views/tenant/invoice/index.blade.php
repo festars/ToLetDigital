@@ -41,6 +41,13 @@
   
   $(document).ready(function() {
     $('#invoices').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ],
         initComplete: function () {
             this.api().columns().every( function () {
                 var column = this;

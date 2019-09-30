@@ -46,6 +46,39 @@ Version: 1.0
 	background: url(../images/subscribe.jpg) top center no-repeat !important;
 }
 
+td:first-child{
+	text-align: right;
+	    padding-right: 5px;
+}
+
+td {
+	font-size: 15px !important;
+	    color: #131313;
+}
+
+
+.price-box-white ul.pricing-list li.price-value{
+	color:black !important;
+}
+
+.howitworks2{
+	    padding-top: 120px !important;
+    padding-bottom: 0px !important;
+}
+.howitworks h3{
+	color:#26a9df;
+}
+
+.smallhead{
+	text-transform: uppercase;
+    color: #f9b139;
+}
+
+.whatyouget	.smallhead{
+	text-transform: none !important;
+    color: #96671b;
+}
+
 
 ul, ol { 
 	list-style: none; 
@@ -73,7 +106,7 @@ p {
 	font-size: 15px;
 	line-height: 24px;
 	font-weight: 400;
-	color: #7c8595;
+	color: #696969;
 	margin-bottom:15px;
 }
 
@@ -187,7 +220,7 @@ iframe {
 
 .section-white {
 	background: #fff;
-	padding: 70px 0;
+	padding: 50px 0;
 }
 
 .section-grey{
@@ -1828,13 +1861,7 @@ ul.features-list-hero li i.blue{
 /* ========================================================== */
 /* 			             12. MEDIA QUERIES                    */
 /* ========================================================== */
-@media (max-width: 767px) {
-	.imac{
-	width:100%;
-	
-	}
-	}
-	
+
 @media (max-width: 991px) {
 
 	.hero-picture{

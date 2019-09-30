@@ -58,13 +58,13 @@
 @endsection
 @section('scripts')
 <script>
-  nicetable('#invoices', {
-      drawCallback: function () {
-      var api = this.api();
-      $( api.table().footer() ).html(
-        api.column( 5, {page:'current'} ).data().sum()
-      );
-    }
-  });
+ $('#invoices').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
 </script>
 @endsection

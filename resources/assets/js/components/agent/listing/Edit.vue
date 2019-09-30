@@ -47,7 +47,7 @@
             <label for="">Property Owner</label>
            <select class="form-control" 
                   v-model="form.owner">
-                    <option v-for="owner in owners" :value="owner.id" :key="owner.id" :selected="form.owner == owner.id">{{ owner.name }}</option>
+                    <option v-for="owner in owners" :value="owner.id" :key="owner.id" >{{ owner.name }}</option>
                   </select>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('owner')" v-text="form.errors.get('owner')"></p>
                 </div>
@@ -93,6 +93,7 @@ export default {
 
     mounted(){
         this.load();
+        
     },
 
     data(){

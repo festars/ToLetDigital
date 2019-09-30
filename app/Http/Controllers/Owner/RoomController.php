@@ -77,9 +77,11 @@ class RoomController extends Controller
     public function show(Room $room)
     {
         $invoices = $room->rentals->pluck('invoices')->collapse();
-        $properties = $room->listing->pluck("name","id");
+        $properties = $room->listing;
+
+        $listing = array($properties["id"]=>$properties["name"]);
        
-        return view('owner.rooms.view',compact('room','invoices','properties'));
+        return view('agent.rooms.view',compact('room','invoices','properties','listing'));
     }
 
     /**

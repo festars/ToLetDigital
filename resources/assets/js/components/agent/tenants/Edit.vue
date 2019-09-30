@@ -11,9 +11,9 @@
                 <div class="form-group">
                   <label for="">Title</label>
                  <select required class="form-control"  v-model="form.title">
-                      <option :value="Mr" :key="Mr" selected>Mr</option>
-                      <option :value="Mrs" :key="Mrs">Mrs</option>
-                      <option :value="Ms" :key="Mrs">Ms</option>
+                      <option value="Mr" key="Mr" >Mr</option>
+                      <option value="Mrs" key="Mrs">Mrs</option>
+                      <option value="Ms" key="Mrs">Ms</option>
                   </select>
                    <p class="text-red text-xs italic my-2" v-if="form.errors.has('title')" v-text="form.errors.get('title')"></p>
                 </div>
@@ -88,6 +88,7 @@ export default {
   props: ["tenant"],
 
    mounted(){
+   console.log(this.form,this.tenant);
         this.load();
     },
 
@@ -106,7 +107,7 @@ export default {
         aemail: "",
         aphone: "",
         country: "",
-        title: ""
+        
       }),
       countries: window.App.countries,
       name:'edit-tenant'+this.tenant.id
@@ -115,6 +116,7 @@ export default {
 
   methods: {
     submit() {
+    console.log(this.form);
       this.form
         .put(`/agent/tenant/${this.tenant.id}`)
         .then(response => {
@@ -125,6 +127,7 @@ export default {
         .catch(errors => {});
     },
     load() {
+       
         Object.assign(this.form,this.tenant); 
     },
     show() {

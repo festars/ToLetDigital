@@ -54,17 +54,16 @@
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary my-4">Sign in</button>
                 </div>
+                <div class="row mt-3">
+            <div class="col-6">
+              <a :href="url" class="text-light"><small>Forgot password?</small></a>
+            </div>
+            
+          </div>
               </form>
             </div>
           </div>
-          <!--<div class="row mt-3">
-            <div class="col-6">
-              <a href="#" class="text-light"><small>Forgot password?</small></a>
-            </div>
-            <div class="col-6 text-right">
-              <a href="#" class="text-light"><small>Create new account</small></a>
-            </div>
-          </div>-->
+          
           
            <!--<modal name="login" height="auto" width="900">
         <div class="fixed pin flex items-center">
@@ -127,6 +126,8 @@
 <script>
 export default {
   mounted() {
+  this.url="/"+this.entity+"/forgot/password"
+  
     //this.$modal.show("login");
   },
 
@@ -134,6 +135,7 @@ export default {
 
   data() {
     return {
+      url:'',
       form: new Form({
         username: "",
         password: ""

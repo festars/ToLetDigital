@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
 
-	<!-- Optional - Adds useful class to manipulate icon font display -->
-	<link rel="stylesheet" href="css/helper.css">
+    <!-- Optional - Adds useful class to manipulate icon font display -->
+    <link rel="stylesheet" href="css/helper.css">
 
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    
     <!-- Font Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico">
     
@@ -82,10 +82,10 @@
                 <!--end navbar -->
                                     
             </div>
-    		<!--end container -->
+            <!--end container -->
             
         </nav>
-    	<!--end nav -->
+        <!--end nav -->
         
     </header>
     <!--end header -->
@@ -93,17 +93,17 @@
     <!--begin home section -->
     <section class="home-section howitworks2" id="home_wrapper">
 
-		<div class="home-section-overlay"></div>
+        <div class="home-section-overlay"></div>
 
-		<!--begin container -->
-		<div class="container">
+        <!--begin container -->
+        <div class="container">
 
-	        <!--begin row -->
-	        <div class="row"></div>
-	        <!--end row -->
+            <!--begin row -->
+            <div class="row"></div>
+            <!--end row -->
 
-		</div>
-		<!--end container -->
+        </div>
+        <!--end container -->
 
     </section>
     <!--end home section -->
@@ -114,16 +114,16 @@
     <!--begin section-white -->
     <section class="section-white" id="about">
 
-		<!--begin container -->
-		<div class="container">
+        <!--begin container -->
+        <div class="container">
 
-	        <!--begin row -->
-	        <div class="row">
+            <!--begin row -->
+            <div class="row">
 
-				<!--begin col-md-12 -->
-				<div class="col-md-9 padding-top-20">
-					<h3><strong style="color: #26a9df;">WHY USE THE SOFTWARE</strong></h3>
-						<p><strong class="smallhead">1. Data security</strong></p>
+                <!--begin col-md-12 -->
+                <div class="col-md-9 padding-top-20">
+                    <h3><strong style="color: #26a9df;">WHY USE THE SOFTWARE</strong></h3>
+                        <p><strong class="smallhead">1. Data security</strong></p>
 <p>More than 10,000 property managers and tenant’s trust us with their data, because we take industry-leading security measures to secure and safe guard our system against intrusion. As a property manager, you handle a lot of sensitive information, including national registration identity numbers, tax IDs, emails and bank account information. We encrypt this data to keep you, your tenants, vendors, and business partners secure. And, all of your information is secured at a physical data center, monitored by the professionals at <a href="http://www.digitalocean.com">www.digitalocean.com</a>. Our web application firewall (WAF) alerts us to irregular traffic and automatically blocks any attacks.</p>
 <p>We regularly audit our procedures to ensure the most secure experience for customers. We review every new feature for security risks, and we regularly conduct penetration tests to uncover vulnerabilities within the application.</p>
 <p>Redundant firewalls, load balancers, and web servers ensure that our software is available whenever you need it. And you never have to worry about losing your data, as it’s securely stored on backup servers.</p>
@@ -134,21 +134,21 @@
 <p><strong class="smallhead">4. Cost saving &amp; affordability</strong><br>
 How much time and money could you be saving with Tolet Online Property Management Software? On average, how many phone calls do you have with tenants, vendors, property owners, etc. each day?, On average, how many minutes is each phone call?, On average, how many hours do you spend each month on: Preparing financial reports and statements?, Processing rent payments? Late fee reminders? Paying bills? Printing, scanning, and sending leases invoices and receipts?</p>
 
-				</div>
-				<div class="col-md-3">
-					<img src="images/whyuse.jpg" style="padding-top: 100px;background: #197fa9;padding-bottom: 100px;padding-left: 0px;">
-				</div>
-				<!--end col-md-12 -->
+                </div>
+                <div class="col-md-3">
+                    <img src="images/whyuse.jpg" style="padding-top: 100px;background: #197fa9;padding-bottom: 100px;padding-left: 0px;">
+                </div>
+                <!--end col-md-12 -->
 
-				<!--begin col-md-4 -->
-				<!--begin col-md-1 -->
-				
-	       
-	        </div>
-	        <!--end row -->
-			
-		</div>
-		<!--end container -->
+                <!--begin col-md-4 -->
+                <!--begin col-md-1 -->
+                
+           
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
 
     </section>
     <!--end section-white -->
@@ -161,10 +161,10 @@ How much time and money could you be saving with Tolet Online Property Managemen
 
 
 
-	
-	<!--end pricing section -->
+    
+    <!--end pricing section -->
    
-  	<!--begin contact -->
+    <!--begin contact -->
     <section class="section-dark newslettersection" id="contact">
         
         <!--begin container-->
@@ -174,12 +174,12 @@ How much time and money could you be saving with Tolet Online Property Managemen
             <div class="row">
             
                 <!--begin col-md-10 -->
-				<div class="col-md-10 col-md-offset-1 text-center margin-bottom-30">
+                <div class="col-md-10 col-md-offset-1 text-center margin-bottom-30">
 
-					<h2 class="section-title grey">Subscribe to our newsletter to get in touch</h2>
-					
-				</div>
-				<!--end col-md-10 -->
+                    <h2 class="section-title grey">Subscribe to our newsletter to get in touch</h2>
+                    
+                </div>
+                <!--end col-md-10 -->
 
             </div>
             <!--end row-->
@@ -215,7 +215,7 @@ How much time and money could you be saving with Tolet Online Property Managemen
                     <!--begin col-md-12-->
                     <div class="col-md-3">
 
-                    	<input value="SUBSCRIBE" id="submit-button" class="contact-submit" type="submit">
+                        <input value="SUBSCRIBE" id="submit-button" class="contact-submit" type="submit">
 
                     </div>
                     <!--end col-md-12-->
@@ -276,11 +276,11 @@ How much time and money could you be saving with Tolet Online Property Managemen
         color: #10aae3;
 ">
                          <div class="col-md-3">
-                    		CONTACT US TODAY:<br>
-                    		For any inquiries or requests
+                            CONTACT US TODAY:<br>
+                            For any inquiries or requests
                         </div>
-                    	<div class="col-md-3"><i class="fa fa-map-marker"></i>
-                    		Blessed House Business Centre, <br>
+                        <div class="col-md-3"><i class="fa fa-map-marker"></i>
+                            Blessed House Business Centre, <br>
                             &nbsp;&nbsp;&nbsp;2nd Floor Office Suit 206D <br>
                             &nbsp;&nbsp;&nbsp;Thika Road, Nairobi Kenya
                         </div>
@@ -315,7 +315,7 @@ How much time and money could you be saving with Tolet Online Property Managemen
                 <!--begin col-md-12 -->
                 <div class="col-md-12 text-center">
                    
-                    <p>Copyright © 2018</p>
+                    <p>Copyright © @php echo date("Y"); @endphp</p>
                     
                 </div>
                 <!--end col-md-6 -->
@@ -340,7 +340,17 @@ How much time and money could you be saving with Tolet Online Property Managemen
 <script src="js/wow.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/custom.js"></script>
-
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d38a5c86d8083122839d89f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 </body>
 </html>

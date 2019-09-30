@@ -10,12 +10,12 @@
     <title>To Let </title>
     
     <!-- Loading Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Loading Template CSS -->
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/style-magnific-popup.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style-magnific-popup.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -23,16 +23,16 @@
 
     <!-- Awsome Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
 
 	<!-- Optional - Adds useful class to manipulate icon font display -->
-	<link rel="stylesheet" href="/css/helper.css">
+	<link rel="stylesheet" href="css/helper.css">
 
-	<link rel="stylesheet" href="/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	
     <!-- Font Favicon -->
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="images/favicon.ico">
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -66,14 +66,11 @@
                     </button>
                         
                     <!--logo -->
-                    <img src="/images/logo.png">
-                     
+                    <img src="images/logo.png">
 
                 </div>
-                    
-                
-                  <div id="navbar-collapse-2" class="collapse navbar-collapse">
-                      
+                        
+                <div id="navbar-collapse-02" class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-right">
                        
@@ -108,7 +105,6 @@
 
     <!--begin home section -->
     <section class="home-section" id="home_wrapper">
-        
 
 		<div class="home-section-overlay"></div>
 
@@ -117,9 +113,9 @@
 
 	        <!--begin row -->
 	        <div class="row">
-	         
+	          
               <div class="col-md-6">
-              <img  class="imac" src="/images/imac.png" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeIn;">
+              <img  class="imac" src="images/imac.png" style="visibility: visible; animation-delay: 1.5s; animation-name: fadeIn;">
               </div>
               
 	            <!--begin col-md-6-->
@@ -135,7 +131,7 @@
                         </li>
 
                     </ul>
-                     <a href={{ route('sys.howitworks') }} class="btn btn-lg btn-blue" style="text-align:center;margin-left: 35%;">Discover More</a>
+                     <a href="howitworks" class="btn btn-lg btn-blue" style="text-align:center;margin-left: 35%;">Discover More</a>
                     <!--end features-list-hero -->
                     
 	          </div>
@@ -191,7 +187,7 @@
                         
 						
 					</div>
-                    <a href={{ route('sys.howitworks') }} class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
+                    <a href="/howitworks" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
 
 				</div>
 
@@ -200,7 +196,7 @@
 
 					<div class="about-box">
 
-						<img src="/images/diamond.png">
+						<img src="images/diamond.png">
 						
 					</div>
 
@@ -216,7 +212,7 @@
 						<p style="text-align:left;">More than 10,000 property managers and tenant’s trust us with their data, because we take industry-leading security measures to secure</p>
 						
 					</div>
-                    <a href={{ route('sys.whyusethesoftware') }} class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
+                    <a href="whyusethesoftware" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
 
 				</div>
 
@@ -225,7 +221,7 @@
 
 					<div class="about-box">
 
-						<img src="/images/whatyouget.png">
+						<img src="images/whatyouget.png">
 						
 					</div>
 
@@ -242,7 +238,7 @@
 						
 					</div>
                     
-                        <a href={{ route('sys.whatyouget') }} class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
+                        <a href="whatyouget" class="btn btn-lg btn-blue" style="text-align:left;">Read More</a>
 
 				</div>
 	       
@@ -273,7 +269,7 @@
 
 						<div class="testim-inner">
 
-							<img src="/images/test3.jpg" alt="testimonials" class="testim-img">
+							<img src="images/test3.jpg" alt="testimonials" class="testim-img">
 							
 							<p> Growing Global Demand: According to Market Research Reports, the global property management software market is expected to experience a compound annual growth rate (CAGR) of 6.7% by 2020. A main factor driving this demand is that property managers and real estate agents need to handle a large amount of data collected from multiple sources.</p>
 
@@ -283,7 +279,7 @@
 
 						<div class="testim-inner">
 
-							<img src="/images/test2.jpg" alt="testimonials" class="testim-img">
+							<img src="images/test2.jpg" alt="testimonials" class="testim-img">
 							
 							<p>As a real estate broker,owner,developer or agent, if you do NOT possess a sophisticated web enabled software that explores tons of options for you, it is in fact 50% defeat for your business. In other words, coins spent for customization of Real Estate CRM is increase in ROI.If you are real estate agent.Professional software suite nurtures your broking activities by allowing you to manage all sorts of tasks in real time,.</p>
 
@@ -293,7 +289,7 @@
 
 						<div class="testim-inner">
 
-							<img src="/images/test1.jpg" alt="testimonials" class="testim-img">
+							<img src="images/test1.jpg" alt="testimonials" class="testim-img">
 							
 							<p>Thanks to information technology as entire world is transformed in the new digital age that has eased the processes of each and every industry, especially in the last decade of 2005 to 2018.So is true for the real estate industry that has become more organized and profitable.Welcome to Tolet Online Property Management Software Erp-Built for the African Market.</p>
 
@@ -359,9 +355,9 @@
 
 							<li class="price-title">BASIC</li>
 
-							<li class="price-value" style="font-size: 14px;font-weight: bold">No of Units per Property | Price per Month KSh</li>
+							<li class="price-value" style="font-size: 14px;">No of Units per Property | Price per Month KSh</li>
 
-							<li class="price-text"  style=" padding-left: 70px; font-weight: bold">
+							<li class="price-text"  style=" padding-left: 70px;">
 								<table style="text-align: left;>
 ">
 	
@@ -393,9 +389,9 @@
 
 							<li class="price-title">STANDARD</li>
 
-							<li class="price-value" style="font-size: 14px;font-weight: bold">No of Units per property | Price per month KSh</li>
+							<li class="price-value" style="font-size: 14px;">No of Units per property | Price per month KSh</li>
 
-							<li class="price-text"  style=" padding-left: 70px;font-weight: bold">
+							<li class="price-text"  style=" padding-left: 70px;">
 								<table style="text-align: left;>
 ">
 	
@@ -427,9 +423,9 @@
 
 							<li class="price-title white-text8">PRO</li>
 
-							<li class="price-value" style="font-size: 14px;font-weight: bold">No of Units per property | Price per month KSh</li>
+							<li class="price-value" style="font-size: 14px;">No of Units per property | Price per month KSh</li>
 
-							<li class="price-text"  style=" padding-left: 70px;font-weight: bold">
+							<li class="price-text"  style=" padding-left: 70px;">
 								<table style="text-align: left;>
 ">
 	
@@ -612,7 +608,7 @@
                 <!--begin col-md-12 -->
                 <div class="col-md-12 text-center">
                    
-                    <p>Copyright © 2019</p>
+                    <p>Copyright © @php echo date("Y"); @endphp</p>
                     
                 </div>
                 <!--end col-md-6 -->
@@ -628,15 +624,26 @@
 
 
 <!-- Load JS here for greater good =============================-->
-<script src="/js/jquery-1.11.3.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/jquery.scrollTo-min.js"></script>
-<script src="/js/jquery.magnific-popup.min.js"></script>
-<script src="/js/jquery.nav.js"></script>
-<script src="/js/bootstrap.js"></script>
-<script src="/js/wow.js"></script>
-<script src="/js/plugins.js"></script>
-<script src="/js/custom.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.scrollTo-min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d38a5c86d8083122839d89f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 
 </body>

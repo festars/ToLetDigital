@@ -25,12 +25,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
 
-	<!-- Optional - Adds useful class to manipulate icon font display -->
-	<link rel="stylesheet" href="css/helper.css">
+    <!-- Optional - Adds useful class to manipulate icon font display -->
+    <link rel="stylesheet" href="css/helper.css">
 
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    
     <!-- Font Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico">
     
@@ -82,10 +82,10 @@
                 <!--end navbar -->
                                     
             </div>
-    		<!--end container -->
+            <!--end container -->
             
         </nav>
-    	<!--end nav -->
+        <!--end nav -->
         
     </header>
     <!--end header -->
@@ -93,17 +93,17 @@
     <!--begin home section -->
     <section class="home-section howitworks2" id="home_wrapper">
 
-		<div class="home-section-overlay"></div>
+        <div class="home-section-overlay"></div>
 
-		<!--begin container -->
-		<div class="container">
+        <!--begin container -->
+        <div class="container">
 
-	        <!--begin row -->
-	        <div class="row"></div>
-	        <!--end row -->
+            <!--begin row -->
+            <div class="row"></div>
+            <!--end row -->
 
-		</div>
-		<!--end container -->
+        </div>
+        <!--end container -->
 
     </section>
     <!--end home section -->
@@ -114,15 +114,15 @@
     <!--begin section-white -->
     <section class="section-white whatyouget" id="about">
 
-		<!--begin container -->
-		<div class="container">
+        <!--begin container -->
+        <div class="container">
 
-	        <!--begin row -->
-	        <div class="row">
+            <!--begin row -->
+            <div class="row">
 
-				<!--begin col-md-12 -->
-				<div class="col-md-9 padding-top-20">
-					                   <h3><strong style="color: #26a9df;">WHAT YOU GET</strong></h3>
+                <!--begin col-md-12 -->
+                <div class="col-md-9 padding-top-20">
+                                       <h3><strong style="color: #26a9df;">WHAT YOU GET</strong></h3>
                         <p><strong class="smallhead">1. Property managers, owner, vendors and tenant portals</strong></p>
 <p>Unlimited users Dashboards for all your tenants, each tenant created gets an independent portal account, property owner’s portal for reporting and agent portal simplifies communication, streamlines administrative work.<br>
 <strong class="smallhead">2. Financial&nbsp;reconciliation, Accounting, budgeting and reporting</strong></p>
@@ -138,21 +138,21 @@
 <p><strong class="smallhead">7. Rent roll summary display</strong></p>
 <p>Give you a full summary of your property name and status occupied or vacant, tenant details at a glance, rent and utilities amounts at a glance, view button to enable you view/edit/create information on a unit within a property and so much more.</p>
 
-				</div>
-				<div class="col-md-3">
-					<img src="images/whyget.jpg" style="padding-top: 110px;background: #197fa9;padding-bottom: 110px;padding-left: 0px;">
-				</div>
-				<!--end col-md-12 -->
+                </div>
+                <div class="col-md-3">
+                    <img src="images/whyget.jpg" style="padding-top: 110px;background: #197fa9;padding-bottom: 110px;padding-left: 0px;">
+                </div>
+                <!--end col-md-12 -->
 
-				<!--begin col-md-4 -->
-				<!--begin col-md-1 -->
-				
-	       
-	        </div>
-	        <!--end row -->
-			
-		</div>
-		<!--end container -->
+                <!--begin col-md-4 -->
+                <!--begin col-md-1 -->
+                
+           
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
 
     </section>
     <!--end section-white -->
@@ -165,10 +165,10 @@
 
 
 
-	
-	<!--end pricing section -->
+    
+    <!--end pricing section -->
    
-  	<!--begin contact -->
+    <!--begin contact -->
     <section class="section-dark newslettersection" id="contact">
         
         <!--begin container-->
@@ -178,12 +178,12 @@
             <div class="row">
             
                 <!--begin col-md-10 -->
-				<div class="col-md-10 col-md-offset-1 text-center margin-bottom-30">
+                <div class="col-md-10 col-md-offset-1 text-center margin-bottom-30">
 
-					<h2 class="section-title grey">Subscribe to our newsletter to get in touch</h2>
-					
-				</div>
-				<!--end col-md-10 -->
+                    <h2 class="section-title grey">Subscribe to our newsletter to get in touch</h2>
+                    
+                </div>
+                <!--end col-md-10 -->
 
             </div>
             <!--end row-->
@@ -219,7 +219,7 @@
                     <!--begin col-md-12-->
                     <div class="col-md-3">
 
-                    	<input value="SUBSCRIBE" id="submit-button" class="contact-submit" type="submit">
+                        <input value="SUBSCRIBE" id="submit-button" class="contact-submit" type="submit">
 
                     </div>
                     <!--end col-md-12-->
@@ -280,11 +280,11 @@
         color: #10aae3;
 ">
                          <div class="col-md-3">
-                    		CONTACT US TODAY:<br>
-                    		For any inquiries or requests
+                            CONTACT US TODAY:<br>
+                            For any inquiries or requests
                         </div>
-                    	<div class="col-md-3"><i class="fa fa-map-marker"></i>
-                    		Blessed House Business Centre, <br>
+                        <div class="col-md-3"><i class="fa fa-map-marker"></i>
+                            Blessed House Business Centre, <br>
                             &nbsp;&nbsp;&nbsp;2nd Floor Office Suit 206D <br>
                             &nbsp;&nbsp;&nbsp;Thika Road, Nairobi Kenya
                         </div>
@@ -319,7 +319,7 @@
                 <!--begin col-md-12 -->
                 <div class="col-md-12 text-center">
                    
-                    <p>Copyright © 2018</p>
+                    <p>Copyright © @php echo date("Y"); @endphp</p>
                     
                 </div>
                 <!--end col-md-6 -->
@@ -344,7 +344,17 @@
 <script src="js/wow.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/custom.js"></script>
-
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d38a5c86d8083122839d89f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 
 </body>
 </html>

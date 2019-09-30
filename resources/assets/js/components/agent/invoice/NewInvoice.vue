@@ -20,7 +20,7 @@
           <div class="col">
             <div class="form-group">
                 <label for="">Property</label>
-                <select class="form-control">
+                <select class="form-control" v-model="form.property" >
                      <option v-for="(property, index) in listings" :value="index">{{property}}</option>
                 </select>
                     <p class="text-red text-xs italic my-2" v-if="form.errors.has('ptype')" v-text="form.errors.get('ptype')"></p>
@@ -58,7 +58,7 @@
           this.form.post('/agent/invoice').
                 then(({data}) => {
                    this.$modal.hide('new-invoice');
-                   location.replace('/agent/invoice');
+                   location.replace('/agent/invoice?type=unpaid');
                    flash(data.message);
                 }).catch(errors => {
 

@@ -35,6 +35,8 @@ class TenantController extends Controller
             }
         });
 
+        //dd($rentals);
+
         return view('agent.tenant.index', compact('rentals'));
     }
 
@@ -68,7 +70,7 @@ class TenantController extends Controller
         request()->validate([
             'title' => 'required|max:25',
             'name' => 'required|max:255',
-            'idnumber' => 'required|numeric|unique:tenants,idnumber',
+            'idnumber' => 'required|unique:tenants,idnumber',
             'email' => 'required|email|unique:tenants,email|max:255',
             'aemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',
@@ -180,12 +182,20 @@ class TenantController extends Controller
      */
     public function destroy(Tenant $tenant)
     {
+
         $room = $tenant->rentals->where('rentable_id', request('unit'))->first();
-        $room->tenants_id =$tenant->id;
+        // dd($room);
+
+        if($room){
+            // $room->tenants_id =$tenant->id;
         $room->tenant_id = null;
-        $room->rental_to = Carbon::now();
+        //$room->rental_to = Carbon::now();
+        $room->rental_to = null;
 
         $room->update();
+        }
+
+       
 
         return response()->json([
             'success' => true,

@@ -1,27 +1,43 @@
-@extends('layouts.main')
+@extends('layouts.main2')
+
+@section("page-title", "Complaints")
 @section('content')
-    <div class="flex flex-col m-4">
-        <div class="flex justify-between items-center my-4">
-            <div class="w-full">
-              <div class="flex items-center">
-                <div class="left-table w-full my-4 mx-4">
-                  <div class="container mx-auto flex justify-between items-center w-full my-2">
-                    <div><p class="uppercase font-semibold text-lg text-blue-dark underline">Complains</p></div>
-                  </div>
-                  @foreach($complains as $complain)
-                    <div class="container mx-auto border-b-2 border-teal shadow-lg bg-grey-lighter my-2 rounded">
-                        <div class="flex items-center mb-4">
-                            <button class="rounded-full bg-grey py-2 px-6 text-grey-darkest mt-2 mr-4"> Addresed by : {{ $complain->tenant->name }}</button>
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">Complains</h3>
                         </div>
-                        <p class="text-black text-lg font-normal mb-2">
-                            {{ $complain->complain }}
-                        </p>                        
-                        <button class="rounded-full bg-grey py-2 px-6 text-grey-darkest mt-2 ">{{ $complain->created_at->format('dS M Y')}}</button>
+                        <div class="col text-right">
+                            <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
+                        </div>
                     </div>
-                    @endforeach
                 </div>
-              </div>
+
+                <div class="card-body">
+
+                    <div class="row">
+                        @foreach($complains as $complain)
+                            <div class="col-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $complain->tenant->name }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ $complain->created_at->format('dS M Y')}}</h6>
+                                        <p class="card-text">{{ $complain->complain }}</p>
+                                        <a href="#" class="card-link">Mark solved</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
             </div>
-         </div>
+        </div>
     </div>
+
+
 @endsection

@@ -20,14 +20,29 @@
                 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
 
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/buttons.bootstrap4.min.css" type="text/css" />
+   
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/select.bootstrap4.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
          @include('layouts.javascript')
         @yield('style')
+
+        <style>
+            @media (min-width: 768px){
+
+                .navbar-vertical.navbar-expand-md .navbar-brand-img {
+                    max-height: 8.5rem;
+                }
+
+            }
+
+            .bg-gradient-primary {
+                background: linear-gradient(87deg, #f8af36 0, #de751f 100%) !important;
+            }
+        </style>
        
     </head>
     <body class="">
@@ -216,19 +231,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
         <script src="{{ mix('/js/app.js') }}"></script>
         <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-                <script src="//cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+                <!-- <script src="//cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script> -->
 
-        <script src="//cdn.datatables.net/1.10.18/js/dataTables.buttons.min.js"></script>
+    <!--     <script src="//cdn.datatables.net/1.10.18/js/dataTables.buttons.min.js"></script> -->
         
-        <script src="//cdn.datatables.net/1.10.18/js/dataTables.select.min.js"></script>
+        <!-- <script src="//cdn.datatables.net/1.10.18/js/dataTables.select.min.js"></script> -->
+        
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
         
 
         <script src="//cdn.datatables.net/plug-ins/1.10.19/api/sum().js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     
-
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5d38a5c86d8083122839d89f/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
         @yield('scripts')
+        
 
     </body>
 </html>

@@ -133,7 +133,15 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example1').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ],
         initComplete: function () {
+
             this.api().columns().every( function () {
                 var column = this;
                 var select = $('<select><option value=""></option></select>')

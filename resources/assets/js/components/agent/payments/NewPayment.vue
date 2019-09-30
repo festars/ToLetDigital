@@ -30,7 +30,7 @@
             <div class="col">
                 <div class="form-group">
                   <label for="">Payment Method</label>
-                  <select class="for-control" v-model="form.mode">
+                  <select class="form-control" v-model="form.mode">
                    <option v-for="paymode in payments" :value="paymode" :key="paymode">{{ paymode }}</option>
                  </select>
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('mode')" v-text="form.errors.get('mode')"></p>
@@ -80,7 +80,7 @@ export default {
         .post("/agent/invoice/payment/" + this.invoice.id)
         .then(({ data }) => {
           this.$modal.hide(this.name);
-          // location.replace('/agent/invoice');
+           location.replace('/agent/invoice');
           flash(data.message);
         })
         .catch(errors => {});

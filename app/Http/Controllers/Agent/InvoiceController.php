@@ -49,6 +49,8 @@ class InvoiceController extends Controller
 
         $date = $date->addMonth(1);
 
+       // dd($request->all());
+
         dispatch(new CreateAgentInvoicesJob($date, auth()->user()));
 
         return \Response::json([
@@ -96,6 +98,7 @@ class InvoiceController extends Controller
 
     public function email(Request $request, Invoice $invoice)
     {
+        dd($invoice);
         Mail::to(request('email'))->send(new SendInvoiceMail($invoice));
 
         return response()->json([

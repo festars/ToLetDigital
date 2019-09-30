@@ -46,7 +46,7 @@ class CreateAgentInvoicesJob implements ShouldQueue
         foreach ($rentalsWithTenants as $rental) {
             if($rental->rentable->accounts->count() > 0){
                     $invoice = $rental->invoices()->create([
-                        'invoice_id' => $this->invoiceNumber(),
+                        'invoice_id' => rand(),
                         'hash'  => $this->randString(),
                         'agent_id' => $this->agent->id,
                         'tenant_id' => $rental->tenant->id,
@@ -55,6 +55,7 @@ class CreateAgentInvoicesJob implements ShouldQueue
                         'month'  => $this->date->month,
                         'year'  => $this->date->year,
                     ]);
+
                 dispatch(new GeneratePdfInvoice($invoice));
             }
 

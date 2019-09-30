@@ -64,7 +64,7 @@ class TenantController extends Controller
     {
         request()->validate([
             'name' => 'required|max:255',
-            'idnumber' => 'required|numeric',
+            'idnumber' => 'required',
             'email' => 'required|email|unique:tenants,email|max:255',
             'aemail' => 'nullable|email|max:255',
             'phone' => 'required|numeric',

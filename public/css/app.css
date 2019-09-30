@@ -7989,6 +7989,11 @@ pre code {
   color: #adb5bd;
 }
 
+.form-control::-moz-placeholder {
+  opacity: 1;
+  color: #adb5bd;
+}
+
 .form-control::placeholder {
   opacity: 1;
   color: #adb5bd;
@@ -11446,8 +11451,10 @@ input[type='button'].btn-block {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3;
     -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
@@ -22782,6 +22789,10 @@ a.btn-icon-only {
   color: #adb5bd;
 }
 
+.form-control:focus::-moz-placeholder {
+  color: #adb5bd;
+}
+
 .form-control:focus::placeholder {
   color: #adb5bd;
 }
@@ -22881,6 +22892,10 @@ textarea[resize='horizontal'] {
   color: #2dce89;
 }
 
+.has-success .form-control::-moz-placeholder {
+  color: #2dce89;
+}
+
 .has-success .form-control::placeholder {
   color: #2dce89;
 }
@@ -22908,6 +22923,10 @@ textarea[resize='horizontal'] {
 }
 
 .has-danger .form-control::-webkit-input-placeholder {
+  color: #fb6340;
+}
+
+.has-danger .form-control::-moz-placeholder {
   color: #fb6340;
 }
 
@@ -24556,6 +24575,10 @@ textarea[resize='horizontal'] {
   color: rgba(255, 255, 255, .6);
 }
 
+.navbar-search-dark .form-control::-moz-placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
 .navbar-search-dark .form-control::placeholder {
   color: rgba(255, 255, 255, .6);
 }
@@ -24585,6 +24608,10 @@ textarea[resize='horizontal'] {
 }
 
 .navbar-search-light .form-control::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, .6);
+}
+
+.navbar-search-light .form-control::-moz-placeholder {
   color: rgba(0, 0, 0, .6);
 }
 
@@ -26991,6 +27018,12 @@ textarea {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: inherit;
   opacity: .5;
 }
@@ -47926,6 +47959,66 @@ th {
     z-index: auto;
   }
 }
+
+.tl-list-item {
+    @apply .my-4 .flex .items-center .hover:bg-indigo .p-2
+}
+
+.agent-image {
+    background-image: url("/images/agent1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .tenant-image {
+    background-image: url("/images/tenant1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .owner-image {
+    background-image: url("/images/owner1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .demo-image {
+    background-image: url("/images/demo1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .vendor-image {
+    background-image: url("/images/vendor1.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .login-image {
+    background-image: url("/images/loginas.png");
+    background-color: #cccccc;
+    height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
 
 .tl-list-item {
     @apply .my-4 .flex .items-center .hover:bg-indigo .p-2

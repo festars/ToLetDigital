@@ -63,6 +63,13 @@
 @endsection
 @section('scripts')
 <script>
-  nicetable('#example1');
+ $('#example1').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
 </script>
 @endsection

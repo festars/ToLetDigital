@@ -29,6 +29,8 @@ class LoginController extends Controller
             return response()->json(['message' => 'Wrong Password/Email/Login-type combination.'],401);
         }
 
+       
+
         return response()->json([
                 'message' => 'Welcome back.',
                 'url' => route('tenant.dashboard')

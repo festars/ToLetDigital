@@ -44,16 +44,44 @@
 @endsection
 @section('scripts')
 <script>
-  nicetable('#tenants');
-  nicetable('#finance', {
-      drawCallback: function () {
-      var api = this.api();
-      $( api.table().footer() ).html(
-        api.column( 3, {page:'current'} ).data().sum()
-      );
-    }
-  });
-  nicetable('#payments');
+  // nicetable('#tenants');
+  // nicetable('#finance', {
+  //     drawCallback: function () {
+  //     var api = this.api();
+  //     $( api.table().footer() ).html(
+  //       api.column( 3, {page:'current'} ).data().sum()
+  //     );
+  //   }
+  // });
+  // nicetable('#payments');
+
+ $('#tenants').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+
+ $('#finance').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+
+ $('#payments').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+
 
 </script>
 @endsection

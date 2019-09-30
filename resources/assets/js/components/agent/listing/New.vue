@@ -53,7 +53,7 @@
           <div class="form-group">
                   <label for="">Notes</label>
                   <textarea class="form-control" v-model="form.description"></textarea>
-                <p class="text-red text-xs italic my-2" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></p>
+                <p class="text-red text-xs italic my-2" v-if="form.errors.has('notes')" v-text="form.errors.get('notes')"></p>
               </div>
               
               
@@ -91,21 +91,13 @@
                   <p class="text-red text-xs italic my-2" v-if="form.errors.has('pmode')" v-text="form.errors.get('pmode')"></p>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group">
-                  <label for="">Payment Type</label>
-                 <select class="form-control" v-model="form.pmode">
-                    <option v-for="pmnttype in payment_types" :value="pmnttype.id" :key="pmnttype.id">{{ pmnttype.name }}</option>
-                  </select>
-                  <p class="text-red text-xs italic my-2" v-if="form.errors.has('pmnttype')" v-text="form.errors.get('pmnttype')"></p>
-                </div>
-            </div>
+            
           </div>
           
           <div class="form-group">
                   <label for="">Payment Details</label>
-                <textarea class="form-control" v-model="form.description"></textarea>
-                <p class="text-red text-xs italic my-2" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></p>
+                <textarea class="form-control" v-model="form.pdetails"></textarea>
+                <p class="text-red text-xs italic my-2" v-if="form.errors.has('pdetails')" v-text="form.errors.get('pdetails')"></p>
               </div>
             
               <button type="submit" class="btn btn-default">Create</button>
@@ -130,7 +122,7 @@
                     'owner'       :'',
                     'name'        :'',
                     'pmode'       :'',
-                    'payment_type':'',
+                    //'payment_type':'',
                     'pdetails'    :'',
                     'location'    :'',
                     'country'     :'',

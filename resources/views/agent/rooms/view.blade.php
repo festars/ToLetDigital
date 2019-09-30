@@ -76,7 +76,7 @@
                 </div>
                 <div class="col text-right">
                   <assign-tenant class="d-inline-block" room="{{ $room->id }}"></assign-tenant>
-                  <new-tenant class="d-inline-block" room="{{ $room->id }}"></new-tenant>
+                  <new-tenant :rentals="{{ json_encode(Auth::user()->listings) }}" class="d-inline-block" room="{{ $room->id }}"></new-tenant>
                   <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
                 </div>
               </div>
@@ -99,7 +99,7 @@
                   <h3 class="mb-0">Escrow Accounts</h3>
                 </div>
                 <div class="col text-right">
-                  <new-account  room="{{ $room->id }}" :properties="{{$properties}}"></new-account>
+                  <new-account  room="{{ $room->id }}" :properties="{{ json_encode($listing)}}"></new-account>
                   <!--<a href="#!" class="btn btn-sm btn-primary">See all</a>-->
                 </div>
               </div>
@@ -141,7 +141,37 @@
 @endsection
 @section('scripts')
 <script>
-nicetable('#tenants');
+  <script>
+ $('#payments').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+</script>
+<script>
+ $('#finance').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+</script>
+<script>
+ $('#tenants').DataTable( {
+      dom: 'Bfrtip',
+  buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+  ]});
+</script>
+<!-- nicetable('#tenants');
   /*nicetable('#tenants',{
     "order": [[ 4, "desc" ]]
   });*/
@@ -153,7 +183,7 @@ nicetable('#tenants');
       );
     }
   });
-  nicetable('#payments');
+  nicetable('#payments'); -->
 
 </script>
 @endsection
